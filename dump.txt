@@ -1,0 +1,162 @@
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Uros', 'Milosevic', 'uros.milosevic@gmail.com','uros123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Milos', 'Milosevic', 'milos.milosevic@gmail.com','milos123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Marko', 'Mitrovic', 'marko.mitrovic@gmail.com','marko123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Milena', 'Milosevic', 'milena.milosevic@gmail.com','milena123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Nikola', 'Petrovic', 'nikola.petrovic@gmail.com','nikola123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Mihajlo', 'Stojkovic', 'mihajlo.stojkovic@gmail.com','mihajlo123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Petar', 'Mihajlovic', 'petar.mihajlovic@gmail.com','petar123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Stefan', 'Stojkovic', 'stefan.stojkovic@gmail.com','stefan123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'David', 'Markovic', 'david.markovic@gmail.com','david123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Gost', 'Marina', 'Petrovic', 'marina.petrovic@gmail.com','marina123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Konobar', 'Marko', 'Stojkovic', 'marko.stojkovic@gmail.com','marko123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Konobar', 'David', 'Marinovic', 'david.marinovic@gmail.com','david123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Konobar', 'Marija', 'Petkovic', 'marija.petkovic@gmail.com','marija123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Konobar', 'Mihajlo', 'Marinovic', 'mihajlo.marinovic@gmail.com','mihajlo123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Konobar', 'Ana', 'Petkovic', 'ana.petkovic@gmail.com','ana123');
+INSERT INTO Korisnici (tipKorisnika, Ime, Prezime, Email, Sifra) VALUES ('Menadzer', 'Nikola', 'Vidanovic', 'nikola.vidanovic@gmail.com','nikola123');
+
+
+
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (2, 'true', '1', 11); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (2, 'true', '2', 12); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (2, 'true', '3', 13); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (2, 'true', '4', 14); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (2, 'true', '5', 15); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (4, 'true', '6', 11); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (4, 'true', '7', 12); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (4, 'true', '8', 13); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (4, 'true', '9', 14); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (4, 'true', '10', 15); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (5, 'true', '11', 11); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (5, 'true', '12', 12); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (5, 'true', '13', 13); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (5, 'true', '14', 14); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (5, 'true', '15', 15); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (6, 'true', '16', 11); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (6, 'true', '17', 12); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (6, 'true', '18', 13); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (6, 'true', '19', 14); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (6, 'true', '20', 15); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (8, 'true', '21', 11); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (8, 'true', '22', 12); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (8, 'true', '23', 13); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (8, 'true', '24', 14); 
+INSERT INTO Stolovi (BrojMesta, Slobodan, Oznaka, KonobarId) VALUES (8, 'true', '25', 15);
+
+
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Fanta', 130, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Sprite', 130, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Coca cola', 130, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Schweppes', 130, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Next-jabuka', 140, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Next-jagoda', 140, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Next-breskva', 140, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Next-borovnica', 140, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Next-pomorandza', 140, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Heba-negazirana', 90, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Heba-gazirana', 110, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Caj-nana', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Caj-jagoda', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Caj-brusnica', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Caj-kamilica', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Caj-zeleni', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Cedevita-zova', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Cedevita-limun', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Cedevita-narandza', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Cedevita-limeta', 100, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Vinjak', 120, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pelinkovac', 120, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Jack Daniels', 250, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Jameson', 220, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Johnny Walker', 220, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Chivas', 350, 'Pice');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-kapricoza', 800, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-vegetarijana', 700, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-margarita', 600, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-peperoni', 850, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-posna', 650, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-diavolo', 800, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Pica-tuna', 750, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Sendvic-sunka', 180, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Sendvic-kulen', 200, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Sendvic-prsuta', 220, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Sendvic-cajna', 190, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-sunka', 180, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-kulen', 200, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-prsuta', 220, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-cajna', 190, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-eurokrem', 180, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-nutela', 200, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-dzem', 220, 'Hrana');
+INSERT INTO StavkeMenija (Naziv, Cena, Tip) VALUES ('Palacinka-snikers', 190, 'Hrana');
+
+
+
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (1, 1, 1, '12345', '2021-01-19 12:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (2, 3, 1, '12345', '2021-01-19 12:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (3, 5, 6, '23456', '2021-01-19 13:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (4, 7, 6, '23456', '2021-01-19 13:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (5, 3, 6, '23456', '2021-01-19 13:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (6, 2, 6, '23456', '2021-01-19 13:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (7, 10, 2, '01234', '2021-01-18 11:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (8, 13, 7, '123', '2021-01-17 15:30:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (9, 17, 7, '123', '2021-01-17 15:30:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (10, 15, 7, '123', '2021-01-17 15:30:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (1, 21, 7, '123', '2021-01-17 15:30:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (2, 6, 3, '45678', '2021-01-15 10:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (3, 9, 3, '45678', '2021-01-15 10:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (4, 15, 4, '5678', '2021-01-18 13:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (5, 11, 5, '56789', '2021-01-17 12:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (6, 6, 11, '34567', '2021-01-18 18:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (7, 20, 11, '34567', '2021-01-18 18:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (8, 11, 11, '34567', '2021-01-18 18:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (9, 13, 11, '34567', '2021-01-18 18:00:00.0000000');
+INSERT INTO Porudzbine (KorisnikId, StavkaMenijaId, StoId, Sifra, Vreme) VALUES (10, 17, 11, '34567', '2021-01-18 18:00:00.0000000');
+
+
+
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (1, 5, '234', '2021-01-14 20:00:00.0000000', 'Dragise Cvetkovica 15');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (2, 7, '234', '2021-01-14 20:00:00.0000000', 'Dragise Cvetkovica 15');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (3, 9, '234', '2021-01-14 20:00:00.0000000', 'Dragise Cvetkovica 15');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (4, 13, '345', '2021-01-17 21:00:00.0000000', 'Obrenoviceva 3');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (5, 20, '456', '2021-01-18 20:00:00.0000000', 'Strahinjica Bana 4');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (6, 12, '567', '2021-01-16 19:00:00.0000000', 'Branka Radicevica 5');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (7, 8, '678', '2021-01-15 20:00:00.0000000', 'Pasterova 19');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (8, 6, '789', '2021-01-13 21:00:00.0000000', 'Bulevar Nemanjica 1/9');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (9, 18, '789', '2021-01-13 21:00:00.0000000', 'Bulevar Nemanjica 1/9');
+INSERT INTO Dostave (KorisnikId, StavkaMenijaId, Sifra, Vreme, Adresa) VALUES (10, 11, '789', '2021-01-13 21:00:00.0000000', 'Bulevar Nemanjica 1/9');
+
+
+
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (4, 'Nije lose..', '2021-01-19 12:45:00.0000000', 1, 'Porudzbina', 1);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (3, 'Srednje..', '2021-01-19 12:45:00.0000000', 2, 'Porudzbina', 2);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (4, 'Nije lose..', '2021-01-19 14:00:00.0000000', 3, 'Porudzbina', 3);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (5, 'Odlicno!', '2021-01-19 14:00:00.0000000', 4, 'Porudzbina', 4);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (2, 'Moze i bolje..', '2021-01-19 14:00:00.0000000', 5, 'Porudzbina', 5);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (4, 'Nije lose..', '2021-01-19 14:00:00.0000000', 6, 'Porudzbina', 6);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (5, 'Odlicno!', '2021-01-18 11:45:00.0000000', 7, 'Porudzbina', 7);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (3, 'Srednje..', '2021-01-17 16:30:00.0000000', 8, 'Porudzbina', 8);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (2, 'Moze i bolje..', '2021-01-17 16:30:00.0000000', 9, 'Porudzbina', 9);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (5, 'Odlicno!', '2021-01-17 16:30:00.0000000', 10, 'Porudzbina', 10);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (2, 'Moze i bolje..', '2021-01-17 16:30:00.0000000', 1, 'Porudzbina', 11);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (4, 'Nije lose..', '2021-01-15 11:15:00.0000000', 2, 'Porudzbina', 12);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (3, 'Srednje..', '2021-01-15 11:15:00.0000000', 3, 'Porudzbina', 13);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (5, 'Odlicno!', '2021-01-18 13:50:00.0000000', 4, 'Porudzbina', 14);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (2, 'Moze i bolje..', '2021-01-17 12:40:00.0000000', 5, 'Porudzbina', 15);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (3, 'Srednje..', '2021-01-18 19:20:00.0000000', 6, 'Porudzbina', 16);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (5, 'Odlicno!', '2021-01-18 19:20:00.0000000', 7, 'Porudzbina', 17);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (4, 'Nije lose..', '2021-01-18 19:20:00.0000000', 8, 'Porudzbina', 18);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (4, 'Nije lose..', '2021-01-18 19:20:00.0000000', 9, 'Porudzbina', 19);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, PorudzbinaId) VALUES (3, 'Srednje..', '2021-01-18 19:20:00.0000000', 10, 'Porudzbina', 20);
+
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (3, 'Srednje..', '2021-01-14 22:00:00.0000000', 1, 'Dostava', 1);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (4, 'Nije lose..', '2021-01-14 22:00:00.0000000', 2, 'Dostava', 2);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (2, 'Moze i bolje..', '2021-01-14 22:00:00.0000000', 3, 'Dostava', 3);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (5, 'Odlicno!', '2021-01-17 22:40:00.0000000', 4, 'Dostava', 4);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (3, 'Srednje..', '2021-01-18 21:50:00.0000000', 5, 'Dostava', 5);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (3, 'Srednje..', '2021-01-16 20:30:00.0000000', 6, 'Dostava', 6);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (5, 'Odlicno!', '2021-01-15 23:10:00.0000000', 7, 'Dostava', 7);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (4, 'Nije lose..', '2021-01-13 22:45:00.0000000', 8, 'Dostava', 8);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (4, 'Nije lose..', '2021-01-13 22:45:00.0000000', 9, 'Dostava', 9);
+INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId, Tip, DostavaId) VALUES (2, 'Moze i bolje..', '2021-01-13 22:45:00.0000000', 10, 'Dostava', 10);
