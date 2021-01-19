@@ -21,11 +21,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetSto/{idStola}")]
-        public IActionResult GetSto(int idStola)
+        public async Task<IActionResult> GetSto(int idStola)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSto(db, idStola));
+                return new JsonResult(await DataProvider.VratiSto(db, idStola));
             }
             catch (Exception ex)
             {
@@ -35,11 +35,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllSto")]
-        public IActionResult GetAllSto()
+        public async Task<IActionResult> GetAllSto()
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSveStolove(db));
+                return new JsonResult(await DataProvider.VratiSveStolove(db));
             }
             catch (Exception ex)
             {
@@ -49,11 +49,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpDelete]
         [Route("DeleteSto/{idStola}")]
-        public IActionResult DeleteSto(int idStola)
+        public async Task<IActionResult> DeleteSto(int idStola)
         {
             try
             {
-                DataProvider.ObrisiSto(db, idStola);
+                await DataProvider.ObrisiSto(db, idStola);
                 return Ok();
             }
             catch (Exception ex)
@@ -64,11 +64,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllStoFromKorisnik/{idKorisnika}")]
-        public IActionResult GetAllStoFromKorisnik(int idKorisnika)
+        public async Task<IActionResult> GetAllStoFromKorisnik(int idKorisnika)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSveStoloveKonobara(db, idKorisnika));
+                return new JsonResult(await DataProvider.VratiSveStoloveKonobara(db, idKorisnika));
             }
             catch (Exception ex)
             {
@@ -78,11 +78,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllFreeOrTakenSto/{slobodan}")]
-        public IActionResult GetAllFreeOrTakenSto(bool slobodan)
+        public async Task<IActionResult> GetAllFreeOrTakenSto(bool slobodan)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSveZauzeteIliSlobodneStolove(db, slobodan));
+                return new JsonResult(await DataProvider.VratiSveZauzeteIliSlobodneStolove(db, slobodan));
             }
             catch (Exception ex)
             {
@@ -92,11 +92,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpPost]
         [Route("AddSto")]
-        public IActionResult AddSto([FromBody] Sto s)
+        public async Task<IActionResult> AddSto([FromBody] Sto s)
         {
             try
             {
-                DataProvider.DodajSto(db, s);
+                await DataProvider.DodajSto(db, s);
                 return Ok();
             }
             catch (Exception ex)
@@ -107,11 +107,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpPut]
         [Route("UpdateSto")]
-        public IActionResult UpdateSto([FromBody] Sto s)
+        public async Task<IActionResult> UpdateSto([FromBody] Sto s)
         {
             try
             {
-                DataProvider.AzurirajSto(db, s);
+                await DataProvider.AzurirajSto(db, s);
                 return Ok();
             }
             catch (Exception ex)

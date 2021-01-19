@@ -22,11 +22,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetPorudzbina/{idPorudzbine}")]
-        public IActionResult GetPorudzbina(int idPorudzbine)
+        public async Task<IActionResult> GetPorudzbina(int idPorudzbine)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiPorudzbinu(db, idPorudzbine));
+                return new JsonResult(await DataProvider.VratiPorudzbinu(db, idPorudzbine));
             }
             catch (Exception ex)
             {
@@ -36,11 +36,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllPorudzbina")]
-        public IActionResult GetAllPorudzbina()
+        public async Task<IActionResult> GetAllPorudzbina()
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSvePorudzbine(db));
+                return new JsonResult(await DataProvider.VratiSvePorudzbine(db));
             }
             catch (Exception ex)
             {
@@ -50,11 +50,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpDelete]
         [Route("DeletePorudzbina/{idPorudzbine}")]
-        public IActionResult DeletePorudzbina(int idPorudzbine)
+        public async Task<IActionResult> DeletePorudzbina(int idPorudzbine)
         {
             try
             {
-                DataProvider.ObrisiPorudzbinu(db, idPorudzbine);
+                await DataProvider.ObrisiPorudzbinu(db, idPorudzbine);
                 return Ok();
             }
             catch (Exception ex)
@@ -65,11 +65,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllPorudzbinaFromKorisnik/{idKorisnika}")]
-        public IActionResult GetAllPorudzbinaFromKorisnik(int idKorisnika)
+        public async Task<IActionResult> GetAllPorudzbinaFromKorisnik(int idKorisnika)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSvePorudzbineKorisnika(db, idKorisnika));
+                return new JsonResult(await DataProvider.VratiSvePorudzbineKorisnika(db, idKorisnika));
             }
             catch (Exception ex)
             {
@@ -79,11 +79,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpPost]
         [Route("AddPorudzbina")]
-        public IActionResult AddPorudzbina([FromBody]Porudzbina p)
+        public async Task<IActionResult> AddPorudzbina([FromBody]Porudzbina p)
         {
             try
             {
-                DataProvider.DodajPorudzbinu(db, p);
+                await DataProvider.DodajPorudzbinu(db, p);
                 return Ok();
             }
             catch (Exception ex)

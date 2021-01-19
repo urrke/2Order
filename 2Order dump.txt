@@ -301,11 +301,3 @@ INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId) VALUES (5, 'Odlicno!'
 INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId) VALUES (4, 'Nije lose..', '2021-01-18 19:20:00.0000000', 8);
 INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId) VALUES (4, 'Nije lose..', '2021-01-18 19:20:00.0000000', 9);
 INSERT INTO Recenzije (Ocena, Komentar, Datum, KorisnikId) VALUES (3, 'Srednje..', '2021-01-18 19:20:00.0000000', 10);
-
-
-
-
-
-
-Add-Migration InitialCreate
-Update-Database

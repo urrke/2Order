@@ -22,11 +22,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetRecenzija/{idRecenzije}")]
-        public IActionResult GetRecenzija(int idRecenzije)
+        public async Task<IActionResult> GetRecenzija(int idRecenzije)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiRecenziju(db, idRecenzije));
+                return new JsonResult(await DataProvider.VratiRecenziju(db, idRecenzije));
             }
             catch (Exception ex)
             {
@@ -36,11 +36,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllRecenzija")]
-        public IActionResult GetAllRecenzija()
+        public async Task<IActionResult> GetAllRecenzija()
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSveRecenzije(db));
+                return new JsonResult(await DataProvider.VratiSveRecenzije(db));
             }
             catch (Exception ex)
             {
@@ -50,11 +50,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpDelete]
         [Route("DeleteRecenzija/{idRecenzije}")]
-        public IActionResult DeleteRecenzija(int idRecenzije)
+        public async Task<IActionResult> DeleteRecenzija(int idRecenzije)
         {
             try
             {
-                DataProvider.ObrisiRecenziju(db, idRecenzije);
+                await DataProvider.ObrisiRecenziju(db, idRecenzije);
                 return Ok();
             }
             catch (Exception ex)
@@ -65,11 +65,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpGet]
         [Route("GetAllRecenzijaFromKorisnik/{idKorisnika}")]
-        public IActionResult GetAllRecenzijaFromKorisnik(int idKorisnika)
+        public async Task<IActionResult> GetAllRecenzijaFromKorisnik(int idKorisnika)
         {
             try
             {
-                return new JsonResult(DataProvider.VratiSveRecenzijeKorisnika(db, idKorisnika));
+                return new JsonResult(await DataProvider.VratiSveRecenzijeKorisnika(db, idKorisnika));
             }
             catch (Exception ex)
             {
@@ -79,11 +79,11 @@ namespace AIPSprojekat.Controllers
 
         [HttpPost]
         [Route("AddRecenzija")]
-        public IActionResult AddRecenzija([FromBody] Recenzija r)
+        public async Task<IActionResult> AddRecenzija([FromBody] Recenzija r)
         {
             try
             {
-                DataProvider.DodajRecenziju(db, r);
+                await DataProvider.DodajRecenziju(db, r);
                 return Ok();
             }
             catch (Exception ex)
