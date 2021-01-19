@@ -13,6 +13,7 @@ namespace _2OrderLibrary
         public string Prezime { get; set; }
         public string Email { get; set; }
         public string Sifra { get; set; }
+
         /*[JsonIgnore]
         public IList<Dostava> mojeDostave { get; set; }
         [JsonIgnore]

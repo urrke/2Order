@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Bk0/pQgWjCYr6fiHtk7c2MYEId64jMf7tN/DEMW1jHPc3MYSil/HcuIwRolOMuIDg6d5KkE16Zn0CU8tloZXg==",
+  "dgSpecHash": "1VLdUPgFnUb9iWiV/1ABgCja6RmeTVN55PrYtzo7vnvJ5a8FHdPu6lhNlTBcgzBOxny7WpnUwSSJubZD7uFLGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+  "projectFilePath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nikola\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj": {}
+    "E:\\AIPSProjekat2Order\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {
+    "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+        "projectUniqueName": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
         "projectName": "2OrderLibrary",
-        "projectPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+        "projectPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
         "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\obj\\",
+        "outputPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -78,14 +78,14 @@
         }
       }
     },
-    "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj": {
+    "E:\\AIPSProjekat2Order\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj",
+        "projectUniqueName": "E:\\AIPSProjekat2Order\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj",
         "projectName": "AIPSprojekat",
-        "projectPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj",
+        "projectPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj",
         "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\AIPSprojekat\\obj\\",
+        "outputPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\AIPSprojekat\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -101,8 +101,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {
-                "projectPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj"
+              "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {
+                "projectPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj"
               }
             }
           }

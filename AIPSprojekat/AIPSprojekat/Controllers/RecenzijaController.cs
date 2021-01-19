@@ -77,20 +77,6 @@ namespace AIPSprojekat.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("GetAllRecenzijaByType/{tipRecenzije}")]
-        public IActionResult GetAllRecenzijaByType(string tipRecenzije)
-        {
-            try
-            {
-                return new JsonResult(DataProvider.VratiSveRecenzijeNaOsnovuTipa(db, tipRecenzije));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
-
         [HttpPost]
         [Route("AddRecenzija")]
         public IActionResult AddRecenzija([FromBody] Recenzija r)

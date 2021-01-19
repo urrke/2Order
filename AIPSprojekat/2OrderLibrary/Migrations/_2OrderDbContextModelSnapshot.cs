@@ -105,7 +105,7 @@ namespace _2OrderLibrary.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("KorisnikId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
                     b.Property<string>("Sifra")
@@ -141,31 +141,18 @@ namespace _2OrderLibrary.Migrations
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DostavaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Komentar")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("KorisnikId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
                     b.Property<int>("Ocena")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PorudzbinaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tip")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("DostavaId");
-
                     b.HasIndex("KorisnikId");
-
-                    b.HasIndex("PorudzbinaId");
 
                     b.ToTable("Recenzije");
                 });
@@ -219,7 +206,9 @@ namespace _2OrderLibrary.Migrations
                 {
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
                         .WithMany()
-                        .HasForeignKey("KorisnikId");
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_2OrderLibrary.Meni", "StavkaMenija")
                         .WithMany()
@@ -240,23 +229,13 @@ namespace _2OrderLibrary.Migrations
 
             modelBuilder.Entity("_2OrderLibrary.Recenzija", b =>
                 {
-                    b.HasOne("_2OrderLibrary.Dostava", "Dostava")
-                        .WithMany()
-                        .HasForeignKey("DostavaId");
-
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
                         .WithMany()
-                        .HasForeignKey("KorisnikId");
-
-                    b.HasOne("_2OrderLibrary.Porudzbina", "Porudzbina")
-                        .WithMany()
-                        .HasForeignKey("PorudzbinaId");
-
-                    b.Navigation("Dostava");
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Korisnik");
-
-                    b.Navigation("Porudzbina");
                 });
 
             modelBuilder.Entity("_2OrderLibrary.Sto", b =>

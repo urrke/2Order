@@ -197,7 +197,7 @@ namespace _2OrderLibrary
             if (p == null)
                 throw new Exception("Porudzbina ne postoji!");
             db.Remove(p);
-            db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public static IList<Porudzbina> VratiSvePorudzbineKorisnika(_2OrderDbContext db, int idKorisnika)
@@ -205,7 +205,7 @@ namespace _2OrderLibrary
             Korisnik k = db.Korisnici.Where(x => x.Id == idKorisnika).FirstOrDefault();
             if(k==null)
                 throw new Exception("Ne postoji korisnik!");
-            IList<Porudzbina> p = db.Porudzbine.Include(x => x.Korisnik).Include(x=>x.StavkaMenija).Where(x => x.Korisnik.Id == idKorisnika).ToList<Porudzbina>();
+            IList<Porudzbina> p = db.Porudzbine.Include(x => x.Korisnik).Include(x=>x.StavkaMenija).Where(x => x.KorisnikId == idKorisnika).ToList<Porudzbina>();
             if (p.Count == 0)
                 throw new Exception("Ne postoje porudzbine!");
             return p;
@@ -213,20 +213,19 @@ namespace _2OrderLibrary
 
         public static void DodajPorudzbinu(_2OrderDbContext db, Porudzbina porudzbina)
         {
-            Korisnik k = db.Korisnici.Where(x => x.Id == porudzbina.Korisnik.Id).FirstOrDefault();
+            Korisnik k = db.Korisnici.Where(x => x.Id == porudzbina.KorisnikId).FirstOrDefault();
             if (k == null)
                 throw new Exception("Ne postoji korisnik!");
-            Sto s = db.Stolovi.Where(x => x.Id == porudzbina.Sto.Id).FirstOrDefault();
+            Sto s = db.Stolovi.Where(x => x.Id == porudzbina.StoId).FirstOrDefault();
             if (s == null)
                 throw new Exception("Ne postoji sto!");
-            Porudzbina p = new Porudzbina
-            {
-            };
+            db.Porudzbine.Add(porudzbina);
+            db.SaveChanges();
         }
 
         public static Recenzija VratiRecenziju(_2OrderDbContext db, int idRecenzije)
         {
-            Recenzija r = db.Recenzije.Include(x => x.Korisnik).Include(x=>x.Porudzbina).Include(x=>x.Dostava).Where(x => x.Id == idRecenzije).FirstOrDefault();
+            Recenzija r = db.Recenzije.Include(x=>x.Korisnik).Where(x => x.Id == idRecenzije).FirstOrDefault();
             if (r == null)
                 throw new Exception("Recenzija ne postoji!");
             return r;
@@ -234,7 +233,7 @@ namespace _2OrderLibrary
 
         public static IList<Recenzija> VratiSveRecenzije(_2OrderDbContext db)
         {
-            IList<Recenzija> r = db.Recenzije.Include(x=>x.Korisnik).Include(x => x.Porudzbina).Include(x => x.Dostava).ToList<Recenzija>();
+            IList<Recenzija> r = db.Recenzije.Include(x => x.Korisnik).ToList<Recenzija>();
             if (r.Count == 0)
                 throw new Exception("Ne postoje recenzije!");
             return r;
@@ -246,7 +245,7 @@ namespace _2OrderLibrary
             if (r == null)
                 throw new Exception("Recenzija ne postoji!");
             db.Remove(r);
-            db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public static IList<Recenzija> VratiSveRecenzijeKorisnika(_2OrderDbContext db, int idKorisnika)
@@ -254,15 +253,7 @@ namespace _2OrderLibrary
             Korisnik k = db.Korisnici.Where(x => x.Id == idKorisnika).FirstOrDefault();
             if (k == null)
                 throw new Exception("Ne postoji korisnik!");
-            IList<Recenzija> r = db.Recenzije.Include(x => x.Korisnik).Include(x => x.Porudzbina).Include(x => x.Dostava).Where(x => x.Korisnik.Id == idKorisnika).ToList<Recenzija>();
-            if (r.Count == 0)
-                throw new Exception("Ne postoje recenzije!");
-            return r;
-        }
-
-        public static IList<Recenzija> VratiSveRecenzijeNaOsnovuTipa(_2OrderDbContext db, string tip)
-        {
-            IList<Recenzija> r = db.Recenzije.Include(x => x.Korisnik).Include(x => x.Porudzbina).Include(x => x.Dostava).Where(x => x.Tip.Equals(tip)).ToList<Recenzija>();
+            IList<Recenzija> r = db.Recenzije.Where(x => x.KorisnikId == idKorisnika).ToList<Recenzija>();
             if (r.Count == 0)
                 throw new Exception("Ne postoje recenzije!");
             return r;
@@ -270,16 +261,11 @@ namespace _2OrderLibrary
 
         public static void DodajRecenziju(_2OrderDbContext db, Recenzija recenzija)
         {
-            Korisnik k = db.Korisnici.Where(x => x.Id == recenzija.Korisnik.Id).FirstOrDefault();
+            Korisnik k = db.Korisnici.Where(x => x.Id == recenzija.KorisnikId).FirstOrDefault();
             if (k == null)
                 throw new Exception("Ne postoji korisnik!");
-            Porudzbina p = db.Porudzbine.Where(x => x.Id == recenzija.Porudzbina.Id).FirstOrDefault();
-            Dostava d = db.Dostave.Where(x => x.Id == recenzija.Dostava.Id).FirstOrDefault();
-            if (p == null && d == null)
-                throw new Exception("Ne postoji porudzbina, ni dostava!");
-            Recenzija r = new Recenzija
-            {
-            };
+            db.Recenzije.Add(recenzija);
+            db.SaveChanges();
         }
 
         public static Sto VratiSto(_2OrderDbContext db, int idStola)
@@ -301,13 +287,8 @@ namespace _2OrderLibrary
         public static void ObrisiSto(_2OrderDbContext db, int idStola)
         {
             Sto s = db.Stolovi.Where(x => x.Id == idStola).FirstOrDefault();
-            IList<Recenzija> r = db.Recenzije.Where(x => x.Porudzbina.Sto.Id == idStola).ToList<Recenzija>();
+            
             IList<Porudzbina> p = db.Porudzbine.Where(x => x.Sto.Id == idStola).ToList<Porudzbina>();
-            if (r.Count > 0)
-            {
-                for (int i = 0; i < r.Count; i++)
-                    db.Remove(r);
-            }
             if (p.Count > 0)
             {
                 for (int i = 0; i < p.Count; i++)
@@ -316,7 +297,7 @@ namespace _2OrderLibrary
             if (s == null)
                 throw new Exception("Sto ne postoji!");
             db.Remove(s);
-            db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public static IList<Sto> VratiSveStoloveKonobara(_2OrderDbContext db, int idKorisnika)
@@ -324,7 +305,7 @@ namespace _2OrderLibrary
             Korisnik k = db.Korisnici.Where(x => x.Id == idKorisnika).FirstOrDefault();
             if (k == null)
                 throw new Exception("Ne postoji korisnik!");
-            IList<Sto> s = db.Stolovi.Include(x => x.Konobar).Where(x => x.Konobar.Id == idKorisnika).ToList<Sto>();
+            IList<Sto> s = db.Stolovi.Where(x => x.KonobarId == idKorisnika).ToList<Sto>();
             if (s.Count == 0)
                 throw new Exception("Ne postoje stolovi!");
             return s;
@@ -340,12 +321,11 @@ namespace _2OrderLibrary
 
         public static void DodajSto(_2OrderDbContext db, Sto sto)
         {
-            Korisnik k = db.Korisnici.Where(x => x.Id == sto.Konobar.Id).FirstOrDefault();
+            Korisnik k = db.Korisnici.Where(x => x.Id == sto.KonobarId).FirstOrDefault();
             if (k == null)
                 throw new Exception("Ne postoji konobar!");
-            Sto s = new Sto
-            {
-            };
+            db.Stolovi.Add(sto);
+            db.SaveChanges();
         }
 
         public static void AzurirajSto(_2OrderDbContext db, Sto sto)
@@ -355,9 +335,9 @@ namespace _2OrderLibrary
             s.Slobodan = sto.Slobodan;
             s.BrojMesta = sto.BrojMesta;
             db.Update(s);
-            db.SaveChangesAsync();
+            db.SaveChanges();
         }
     }
 
-    }
+    
 }

@@ -5804,11 +5804,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+      "projectUniqueName": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
       "projectName": "2OrderLibrary",
-      "projectPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+      "projectPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
       "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\2OrderLibrary\\obj\\",
+      "outputPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",

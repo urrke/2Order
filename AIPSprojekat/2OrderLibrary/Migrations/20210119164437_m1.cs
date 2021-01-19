@@ -40,6 +40,28 @@ namespace _2OrderLibrary.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Recenzije",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Ocena = table.Column<int>(type: "int", nullable: false),
+                    Komentar = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    KorisnikId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recenzije", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Recenzije_Korisnici_KorisnikId",
+                        column: x => x.KorisnikId,
+                        principalTable: "Korisnici",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Stolovi",
                 columns: table => new
                 {
@@ -67,7 +89,7 @@ namespace _2OrderLibrary.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    KorisnikId = table.Column<int>(type: "int", nullable: true),
+                    KorisnikId = table.Column<int>(type: "int", nullable: false),
                     StavkaMenijaId = table.Column<int>(type: "int", nullable: false),
                     Sifra = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Vreme = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -81,7 +103,7 @@ namespace _2OrderLibrary.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnici",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Dostave_StavkeMenija_StavkaMenijaId",
                         column: x => x.StavkaMenijaId,
@@ -96,7 +118,7 @@ namespace _2OrderLibrary.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    KorisnikId = table.Column<int>(type: "int", nullable: true),
+                    KorisnikId = table.Column<int>(type: "int", nullable: false),
                     StavkaMenijaId = table.Column<int>(type: "int", nullable: false),
                     StoId = table.Column<int>(type: "int", nullable: true),
                     Sifra = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -110,7 +132,7 @@ namespace _2OrderLibrary.Migrations
                         column: x => x.KorisnikId,
                         principalTable: "Korisnici",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Porudzbine_StavkeMenija_StavkaMenijaId",
                         column: x => x.StavkaMenijaId,
@@ -121,43 +143,6 @@ namespace _2OrderLibrary.Migrations
                         name: "FK_Porudzbine_Stolovi_StoId",
                         column: x => x.StoId,
                         principalTable: "Stolovi",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Recenzije",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Ocena = table.Column<int>(type: "int", nullable: false),
-                    Komentar = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    KorisnikId = table.Column<int>(type: "int", nullable: true),
-                    Tip = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DostavaId = table.Column<int>(type: "int", nullable: true),
-                    PorudzbinaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Recenzije", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Recenzije_Dostave_DostavaId",
-                        column: x => x.DostavaId,
-                        principalTable: "Dostave",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Recenzije_Korisnici_KorisnikId",
-                        column: x => x.KorisnikId,
-                        principalTable: "Korisnici",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Recenzije_Porudzbine_PorudzbinaId",
-                        column: x => x.PorudzbinaId,
-                        principalTable: "Porudzbine",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -188,19 +173,9 @@ namespace _2OrderLibrary.Migrations
                 column: "StoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recenzije_DostavaId",
-                table: "Recenzije",
-                column: "DostavaId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Recenzije_KorisnikId",
                 table: "Recenzije",
                 column: "KorisnikId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Recenzije_PorudzbinaId",
-                table: "Recenzije",
-                column: "PorudzbinaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Stolovi_KonobarId",
@@ -211,13 +186,13 @@ namespace _2OrderLibrary.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Recenzije");
-
-            migrationBuilder.DropTable(
                 name: "Dostave");
 
             migrationBuilder.DropTable(
                 name: "Porudzbine");
+
+            migrationBuilder.DropTable(
+                name: "Recenzije");
 
             migrationBuilder.DropTable(
                 name: "StavkeMenija");

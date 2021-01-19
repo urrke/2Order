@@ -8,8 +8,7 @@ namespace _2OrderLibrary
     public class Porudzbina
     {
         public int Id { get; set; }
-        //public int KorisnikId { get; set; }
-        //[ForeignKey("KorisnikId")]
+        public int KorisnikId { get; set; }
         public Korisnik Korisnik { get; set; }
 
         //public int KonobarId { get; set; }

@@ -10,7 +10,7 @@ using _2OrderLibrary;
 namespace _2OrderLibrary.Migrations
 {
     [DbContext(typeof(_2OrderDbContext))]
-    [Migration("20210109175929_m1")]
+    [Migration("20210119164437_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace _2OrderLibrary.Migrations
                     b.Property<string>("Adresa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("KorisnikId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
                     b.Property<string>("Sifra")
@@ -107,7 +107,7 @@ namespace _2OrderLibrary.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("KorisnikId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
                     b.Property<string>("Sifra")
@@ -143,31 +143,18 @@ namespace _2OrderLibrary.Migrations
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DostavaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Komentar")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("KorisnikId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
                     b.Property<int>("Ocena")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PorudzbinaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tip")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("DostavaId");
-
                     b.HasIndex("KorisnikId");
-
-                    b.HasIndex("PorudzbinaId");
 
                     b.ToTable("Recenzije");
                 });
@@ -201,8 +188,10 @@ namespace _2OrderLibrary.Migrations
             modelBuilder.Entity("_2OrderLibrary.Dostava", b =>
                 {
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
-                        .WithMany("mojeDostave")
-                        .HasForeignKey("KorisnikId");
+                        .WithMany()
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_2OrderLibrary.Meni", "StavkaMenija")
                         .WithMany()
@@ -218,8 +207,10 @@ namespace _2OrderLibrary.Migrations
             modelBuilder.Entity("_2OrderLibrary.Porudzbina", b =>
                 {
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
-                        .WithMany("mojePorudzbine")
-                        .HasForeignKey("KorisnikId");
+                        .WithMany()
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_2OrderLibrary.Meni", "StavkaMenija")
                         .WithMany()
@@ -240,23 +231,13 @@ namespace _2OrderLibrary.Migrations
 
             modelBuilder.Entity("_2OrderLibrary.Recenzija", b =>
                 {
-                    b.HasOne("_2OrderLibrary.Dostava", "Dostava")
-                        .WithMany()
-                        .HasForeignKey("DostavaId");
-
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
-                        .WithMany("mojeRecenzije")
-                        .HasForeignKey("KorisnikId");
-
-                    b.HasOne("_2OrderLibrary.Porudzbina", "Porudzbina")
                         .WithMany()
-                        .HasForeignKey("PorudzbinaId");
-
-                    b.Navigation("Dostava");
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Korisnik");
-
-                    b.Navigation("Porudzbina");
                 });
 
             modelBuilder.Entity("_2OrderLibrary.Sto", b =>
@@ -268,15 +249,6 @@ namespace _2OrderLibrary.Migrations
                         .IsRequired();
 
                     b.Navigation("Konobar");
-                });
-
-            modelBuilder.Entity("_2OrderLibrary.Korisnik", b =>
-                {
-                    b.Navigation("mojeDostave");
-
-                    b.Navigation("mojePorudzbine");
-
-                    b.Navigation("mojeRecenzije");
                 });
 #pragma warning restore 612, 618
         }

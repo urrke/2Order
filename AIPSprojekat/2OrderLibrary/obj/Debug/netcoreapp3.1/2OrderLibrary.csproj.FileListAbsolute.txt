@@ -10,3 +10,15 @@ C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\
 C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.dll
 C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.pdb
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csprojAssemblyReference.cache
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csproj.CoreCompileInputs.cache
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.AssemblyInfoInputs.cache
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.AssemblyInfo.cs
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.dll
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.pdb
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.deps.json
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.runtimeconfig.json
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.runtimeconfig.dev.json
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.dll
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.pdb
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.genruntimeconfig.cache

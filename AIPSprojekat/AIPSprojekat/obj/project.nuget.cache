@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hAj55VJ+PjhIS3qRvzP1a9fUAWu6ijv611uA5BuDPjxzP1z/bBTb/5ewf5engMau4rNfjaOXQK5luoszJoqXkg==",
+  "dgSpecHash": "Xk/FWamQyLpZfxydEz2UibfopeFgwLbHOuilYJRJaVXxUDwLQJiXa00SUUYULAUMrCcwHhGSJde2xOP30I7h+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nikola\\source\\repos\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj",
+  "projectFilePath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\AIPSprojekat\\AIPSprojekat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nikola\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
