@@ -29,7 +29,7 @@ namespace _2OrderLibrary.Migrations
                     b.Property<string>("Adresa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("KorisnikId")
+                    b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
                     b.Property<string>("Sifra")
@@ -199,8 +199,10 @@ namespace _2OrderLibrary.Migrations
             modelBuilder.Entity("_2OrderLibrary.Dostava", b =>
                 {
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
-                        .WithMany("mojeDostave")
-                        .HasForeignKey("KorisnikId");
+                        .WithMany()
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("_2OrderLibrary.Meni", "StavkaMenija")
                         .WithMany()
@@ -216,7 +218,7 @@ namespace _2OrderLibrary.Migrations
             modelBuilder.Entity("_2OrderLibrary.Porudzbina", b =>
                 {
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
-                        .WithMany("mojePorudzbine")
+                        .WithMany()
                         .HasForeignKey("KorisnikId");
 
                     b.HasOne("_2OrderLibrary.Meni", "StavkaMenija")
@@ -243,7 +245,7 @@ namespace _2OrderLibrary.Migrations
                         .HasForeignKey("DostavaId");
 
                     b.HasOne("_2OrderLibrary.Korisnik", "Korisnik")
-                        .WithMany("mojeRecenzije")
+                        .WithMany()
                         .HasForeignKey("KorisnikId");
 
                     b.HasOne("_2OrderLibrary.Porudzbina", "Porudzbina")
@@ -266,15 +268,6 @@ namespace _2OrderLibrary.Migrations
                         .IsRequired();
 
                     b.Navigation("Konobar");
-                });
-
-            modelBuilder.Entity("_2OrderLibrary.Korisnik", b =>
-                {
-                    b.Navigation("mojeDostave");
-
-                    b.Navigation("mojePorudzbine");
-
-                    b.Navigation("mojeRecenzije");
                 });
 #pragma warning restore 612, 618
         }
