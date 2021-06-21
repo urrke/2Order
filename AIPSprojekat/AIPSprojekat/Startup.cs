@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _2OrderLibrary;
+using AIPSprojekat.Messages;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,14 +29,17 @@ namespace AIPSprojekat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            });
             services.AddDbContext<_2OrderDbContext>(conf => conf.UseSqlServer(Configuration.GetConnectionString("Konekcija")));
             services.AddCors(options =>
             {
                 options.AddPolicy("CORS", builder =>
                 {
-                    builder.AllowAnyHeader()
-                           .AllowAnyMethod()
-                           .AllowAnyOrigin();
+                    builder.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
+                    //builder.WithOrigins("http://localhost:5500").AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build();
                 });
             });
             services.AddMvc().AddJsonOptions(p =>
@@ -63,6 +67,7 @@ namespace AIPSprojekat
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<NotificationHub>("/NotificationHub");
             });
         }
     }

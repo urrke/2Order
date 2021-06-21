@@ -87,6 +87,9 @@ namespace _2OrderLibrary.Migrations
                     b.Property<float>("Cena")
                         .HasColumnType("real");
 
+                    b.Property<string>("Grupa")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Naziv")
                         .HasColumnType("nvarchar(max)");
 

@@ -22,3 +22,15 @@ E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderL
 E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.dll
 E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.pdb
 E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.genruntimeconfig.cache
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.deps.json
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.runtimeconfig.json
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.runtimeconfig.dev.json
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.dll
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\2OrderLibrary.pdb
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csprojAssemblyReference.cache
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.AssemblyInfoInputs.cache
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.AssemblyInfo.cs
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csproj.CoreCompileInputs.cache
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.dll
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.pdb
+C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.genruntimeconfig.cache

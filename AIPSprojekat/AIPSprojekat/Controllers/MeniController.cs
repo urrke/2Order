@@ -53,5 +53,19 @@ namespace AIPSprojekat.Controllers
         {
             await DataProvider.DeleteMenuItem(db, id);
         }
+
+        [HttpGet]
+        [Route("GetMenuByType/{tip}")]
+        public async Task<JsonResult> GetMenuByType(string tip)
+        {
+            return new JsonResult(await DataProvider.GetMenuByType(db, tip));
+        }
+
+        [HttpGet]
+        [Route("GetMenuByGroup/{grupa}")]
+        public async Task<JsonResult> GetMenuByGroup(string grupa)
+        {
+            return new JsonResult(await DataProvider.GetMenuByGroup(db, grupa));
+        }
     }
 }

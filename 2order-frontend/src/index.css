@@ -1,0 +1,170 @@
+/* APP */
+
+.iconUtensils {
+    width: 25px;
+    height: 25px;
+    color: #0abf53;
+}
+
+.tab-active {
+    color: #0abf53;
+}
+
+.tab {
+    font-weight: 600;
+}
+
+.tab:hover {
+    font-weight: 600;
+    color: #0abf53;
+}
+
+.transparentDiv {
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.6);
+    z-index:5;
+    width:100%;
+    height:100%;
+}
+
+.loader {
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #0abf53;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+/*--- APP ---*/
+
+/* HEADER */
+
+.breadcrumb-path {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin-right: 5px;
+}
+
+/*--- HEADER ---*/
+
+/* FOOTER */
+
+.footer-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*--- FOOTER ---*/
+
+/* INDEX */
+
+.title {
+    font-size: 30px;
+}
+
+.iconGrid {
+    color: #ffc945;
+}
+
+.index-grid {
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: 600;
+    color: #060606;
+    margin: 25px 0 15px;
+}
+
+/*--- INDEX ---*/
+
+/* ABOUTUS */
+
+.faAboutUs {
+    color: #0abf53;
+}
+
+/*--- ABOUTUS ---*/
+
+/* CONTACT */
+
+.contactDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.contactDiv-left, 
+.contactDiv-right {
+    display: flex;
+    flex-direction: column;
+}
+
+/*--- CONTACT ---*/
+
+/* MENU */
+
+.menu-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.menu-choose {
+    color: #6b6768;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.active-menu-type {
+    background-color: #ffc945;
+}
+
+.active-menu-type:focus {
+    border: none;
+}
+
+/*--- MENU ---*/
+
+/* FOOD */
+
+.food-container {
+    text-align: center;
+    margin-right: 250px;
+    margin-left: 200px;
+    margin-bottom: 100px;
+}
+
+.select-food {
+    width: 250px;
+}
+
+/*--- FOOD ---*/
+
+/* DRINKS */
+
+.drinks-container {
+    text-align: center;
+    margin-right: 250px;
+    margin-left: 200px;
+    margin-bottom: 100px;
+}
+
+/*--- DRINKS ---*/

@@ -67,6 +67,18 @@ namespace _2OrderLibrary
             return meni;
         }
 
+        public static async Task<List<Meni>> GetMenuByType(_2OrderDbContext db, string tip)
+        {
+            List<Meni> meni = await db.StavkeMenija.Where(x=>x.Tip==tip).ToListAsync();
+            return meni;
+        }
+
+        public static async Task<List<Meni>> GetMenuByGroup(_2OrderDbContext db, string grupa)
+        {
+            List<Meni> meni = await db.StavkeMenija.Where(x => x.Grupa == grupa).ToListAsync();
+            return meni;
+        }
+
         public static async Task<Meni> GetMenuItem(_2OrderDbContext db, int id)
         {
             Meni m = await db.StavkeMenija.Where(x => x.Id == id).FirstOrDefaultAsync();

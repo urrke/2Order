@@ -10,6 +10,6 @@ namespace _2OrderLibrary
         public string Naziv { get; set; }
         public float Cena { get; set; }
         public string Tip { get; set; }
-
+        public string Grupa { get; set; }
     }
 }

@@ -54,142 +54,142 @@ VALUES ('Menadzer', 'Mladen', 'Peric', 'mladen.peric@elfak.rs', 'mladen123');
 
 
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Espresso', '100', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Espresso', '100', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Espresso Macchiato', '110', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Espresso Macchiato', '110', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Capuccino', '120', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Capuccino', '120', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Nescafee', '140', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Nescafee', '140', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Irish Caffe', '220', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Irish Coffee', '220', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Domaća kafa', '100', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Domaća kafa', '100', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Topla čokolada', '160', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Topla čokolada', '160', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Voćni frape', '200', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Voćni frape', '200', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Milford čaj', '130', 'Topli i hladni napici')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Milford čaj', '130', 'Pice', 'Topli i hladni napici')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Negazirana voda 0,25', '100', 'Voda')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Negazirana voda 0,25', '100', 'Pice', 'Voda')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Negazirana voda 0,75', '200', 'Voda')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Negazirana voda 0,75', '200', 'Pice', 'Voda')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Gazirana voda 0,25', '100', 'Voda')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Gazirana voda 0,25', '100', 'Pice', 'Voda')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Gazirana voda 0,75', '200', 'Voda')
-
-
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Cedevita 0,25', '100', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Jabuka 0,2', '160', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Jagoda 0,2', '160', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Borovnica 0,2', '160', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Coca Cola 0,25', '160', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Fanta 0,25', '160', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Sprite 0,25', '160', 'Sokovi')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Orangina 0,2', '160', 'Sokovi')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Gazirana voda 0,75', '200', 'Pice', 'Voda')
 
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Becks 0,33', '210', 'Piva')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Corona 0,33', '280', 'Piva')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Cedevita 0,25', '100', 'Pice', 'Sok')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Stella Artois 0,33', '250', 'Piva')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Jabuka 0,2', '160', 'Pice', 'Sok')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Staropramen 0,33', '190', 'Piva')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Jagoda 0,2', '160', 'Pice', 'Sok')
 
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Borovnica 0,2', '160', 'Pice', 'Sok')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Cosmopolitan', '250', 'Kokteli')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Coca Cola 0,25', '160', 'Pice', 'Sok')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Long Island', '310', 'Kokteli')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Fanta 0,25', '160', 'Pice', 'Sok')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Mai Tai', '310', 'Kokteli')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Sprite 0,25', '160', 'Pice', 'Sok')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('El Diablo', '250', 'Kokteli')
-
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Pina Colada', '320', 'Kokteli')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Orangina 0,2', '160', 'Pice', 'Sok')
 
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Capricciosa 32cm', '790', 'Pizze')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Becks 0,33', '210', 'Pice', 'Pivo')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Venezia 32cm', '990', 'Pizze')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Corona 0,33', '280', 'Pice', 'Pivo')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Mexico 32cm', '990', 'Pizze')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Stella Artois 0,33', '250', 'Pice', 'Pivo')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Margarita 32cm', '720', 'Pizze')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Staropramen 0,33', '190', 'Pice', 'Pivo')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Vege 32cm', '780', 'Pizze')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Cheeseburger', '280', 'Burgeri')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Cosmopolitan', '250', 'Pice', 'Koktel')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Triple Cheeseburger', '380', 'Burgeri')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Long Island', '310', 'Pice', 'Koktel')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Bečki burger', '320', 'Burgeri')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Mai Tai', '310', 'Pice', 'Koktel')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Index Sandwich', '290', 'Sendviči')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('El Diablo', '250', 'Pice', 'Koktel')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Chicken Feta Sandwich', '420', 'Sendviči')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Pina Colada', '320', 'Pice', 'Koktel')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Mexico Sandwich', '420', 'Sendviči')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Palačinka - eurokrem', '190', 'Palačinke')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Capricciosa 32cm', '790', 'Hrana', 'Pizza')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Palačinka - nutella', '230', 'Palačinke')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Venezia 32cm', '990', 'Hrana', 'Pizza')
 
-INSERT INTO StavkeMenija (Naziv, Cena, Tip)
-VALUES ('Palačinka - slana', '210', 'Palačinke')
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Mexico 32cm', '990', 'Hrana', 'Pizza')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Margarita 32cm', '720', 'Hrana', 'Pizza')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Vegetariana 32cm', '780', 'Hrana', 'Pizza')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Cheeseburger', '280', 'Hrana', 'Burger')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Triple Cheeseburger', '380', 'Hrana', 'Burger')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Bečki burger', '320', 'Hrana', 'Burger')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Index Sandwich', '290', 'Hrana', 'Sendvič')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Chicken Feta Sandwich', '420', 'Hrana', 'Sendvič')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Mexico Sandwich', '420', 'Hrana', 'Sendvič')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Palačinka - eurokrem', '190', 'Hrana', 'Palačinka')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Palačinka - nutella', '230', 'Hrana', 'Palačinka')
+
+INSERT INTO StavkeMenija (Naziv, Cena, Tip, Grupa)
+VALUES ('Palačinka - slana', '210', 'Hrana', 'Palačinka')
 
 
 

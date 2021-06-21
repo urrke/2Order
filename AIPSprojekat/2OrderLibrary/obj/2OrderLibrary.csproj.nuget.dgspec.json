@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {}
+    "C:\\Users\\urrke\\Documents\\git\\AIPS\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {}
   },
   "projects": {
-    "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {
+    "C:\\Users\\urrke\\Documents\\git\\AIPS\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\urrke\\Documents\\git\\AIPS\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
         "projectName": "2OrderLibrary",
-        "projectPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
-        "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "E:\\AIPSProjekat2Order\\AIPSprojekat\\2OrderLibrary\\obj\\",
+        "projectPath": "C:\\Users\\urrke\\Documents\\git\\AIPS\\AIPSprojekat\\2OrderLibrary\\2OrderLibrary.csproj",
+        "packagesPath": "C:\\Users\\urrke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\urrke\\Documents\\git\\AIPS\\AIPSprojekat\\2OrderLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\urrke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -74,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
