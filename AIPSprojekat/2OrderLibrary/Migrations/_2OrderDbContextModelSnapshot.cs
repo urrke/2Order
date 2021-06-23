@@ -108,14 +108,39 @@ namespace _2OrderLibrary.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<float>("Cena")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Grupa")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Sifra")
+                    b.Property<string>("Opis")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StavkaMenijaId")
+                    b.Property<int>("RacunId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Tip")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KorisnikId");
+
+                    b.HasIndex("RacunId");
+
+                    b.ToTable("Porudzbine");
+                });
+
+            modelBuilder.Entity("_2OrderLibrary.Racun", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int?>("StoId")
                         .HasColumnType("int");
@@ -125,13 +150,9 @@ namespace _2OrderLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("KorisnikId");
-
-                    b.HasIndex("StavkaMenijaId");
-
                     b.HasIndex("StoId");
 
-                    b.ToTable("Porudzbine");
+                    b.ToTable("Racuni");
                 });
 
             modelBuilder.Entity("_2OrderLibrary.Recenzija", b =>
@@ -213,19 +234,22 @@ namespace _2OrderLibrary.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_2OrderLibrary.Meni", "StavkaMenija")
-                        .WithMany()
-                        .HasForeignKey("StavkaMenijaId")
+                    b.HasOne("_2OrderLibrary.Racun", "Racun")
+                        .WithMany("ListaPorudzbina")
+                        .HasForeignKey("RacunId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Korisnik");
+
+                    b.Navigation("Racun");
+                });
+
+            modelBuilder.Entity("_2OrderLibrary.Racun", b =>
+                {
                     b.HasOne("_2OrderLibrary.Sto", "Sto")
                         .WithMany()
                         .HasForeignKey("StoId");
-
-                    b.Navigation("Korisnik");
-
-                    b.Navigation("StavkaMenija");
 
                     b.Navigation("Sto");
                 });
@@ -250,6 +274,11 @@ namespace _2OrderLibrary.Migrations
                         .IsRequired();
 
                     b.Navigation("Konobar");
+                });
+
+            modelBuilder.Entity("_2OrderLibrary.Racun", b =>
+                {
+                    b.Navigation("ListaPorudzbina");
                 });
 #pragma warning restore 612, 618
         }

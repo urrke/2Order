@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Text.Json.Serialization;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace _2OrderLibrary
@@ -8,21 +8,15 @@ namespace _2OrderLibrary
     public class Porudzbina
     {
         public int Id { get; set; }
+        public string Opis { get; set; }
+        public float Cena { get; set; }
+        public string Tip { get; set; }
+        public string Grupa { get; set; }
+        public int RacunId { get; set; }
+        [JsonIgnore]
+        public Racun Racun { get; set; }
         public int KorisnikId { get; set; }
         public Korisnik Korisnik { get; set; }
-
-        //public int KonobarId { get; set; }
-        //[ForeignKey("KonobarId")]
-        //public Korisnik Konobar { get; set; }
-
-        public int StavkaMenijaId { get; set; }
-        public Meni StavkaMenija { get; set; }
-
-        public int? StoId { get; set; }
-        public Sto Sto { get; set; }
-
-        public string Sifra { get; set; }
-        public DateTime Vreme { get; set; }
 
     }
 }

@@ -176,7 +176,7 @@ namespace _2OrderLibrary
 
         public static async Task<Porudzbina> VratiPorudzbinu(_2OrderDbContext db, int idPorudzbine)
         {
-            Porudzbina p = await db.Porudzbine.Include(x => x.Korisnik).Include(x=>x.StavkaMenija).Where(x => x.Id == idPorudzbine).FirstOrDefaultAsync();
+            Porudzbina p = await db.Porudzbine.Include(x => x.Korisnik).Where(x => x.Id == idPorudzbine).FirstOrDefaultAsync();
             if (p == null)
                 throw new Exception("Porudzbina ne postoji!");
             return p;
@@ -184,7 +184,7 @@ namespace _2OrderLibrary
 
         public static async Task<IList<Porudzbina>> VratiSvePorudzbine(_2OrderDbContext db)
         {
-            IList<Porudzbina> p = await db.Porudzbine.Include(x => x.Korisnik).Include(x => x.StavkaMenija).ToListAsync<Porudzbina>();
+            IList<Porudzbina> p = await db.Porudzbine.Include(x => x.Korisnik).ToListAsync<Porudzbina>();
             if (p.Count == 0)
                 throw new Exception("Ne postoje porudzbine!");
             return p;
@@ -204,7 +204,7 @@ namespace _2OrderLibrary
             Korisnik k = await db.Korisnici.Where(x => x.Id == idKorisnika).FirstOrDefaultAsync();
             if(k==null)
                 throw new Exception("Ne postoji korisnik!");
-            IList<Porudzbina> p = await db.Porudzbine.Include(x => x.Korisnik).Include(x=>x.StavkaMenija).Where(x => x.KorisnikId == idKorisnika).ToListAsync<Porudzbina>();
+            IList<Porudzbina> p = await db.Porudzbine.Include(x => x.Korisnik).Where(x => x.KorisnikId == idKorisnika).ToListAsync<Porudzbina>();
             if (p.Count == 0)
                 throw new Exception("Ne postoje porudzbine!");
             return p;
@@ -215,9 +215,7 @@ namespace _2OrderLibrary
             Korisnik k = await db.Korisnici.Where(x => x.Id == porudzbina.KorisnikId).FirstOrDefaultAsync();
             if (k == null)
                 throw new Exception("Ne postoji korisnik!");
-            Sto s = await db.Stolovi.Where(x => x.Id == porudzbina.StoId).FirstOrDefaultAsync();
-            if (s == null)
-                throw new Exception("Ne postoji sto!");
+
             db.Porudzbine.Add(porudzbina);
             await db.SaveChangesAsync();
         }
@@ -286,11 +284,11 @@ namespace _2OrderLibrary
         public static async Task ObrisiSto(_2OrderDbContext db, int idStola)
         {
             Sto s = await db.Stolovi.Where(x => x.Id == idStola).FirstOrDefaultAsync();
-            IList<Porudzbina> p = await db.Porudzbine.Where(x => x.Sto.Id == idStola).ToListAsync<Porudzbina>();
+            IList<Racun> p = await db.Racuni.Where(x => x.Sto.Id == idStola).ToListAsync<Racun>();
             if (p.Count > 0)
             {
                 for (int i = 0; i < p.Count; i++)
-                    db.Porudzbine.Remove(p.ElementAt(i));
+                    db.Racuni.Remove(p.ElementAt(i));
             }
             if (s == null)
                 throw new Exception("Sto ne postoji!");
@@ -336,6 +334,12 @@ namespace _2OrderLibrary
             s.BrojMesta = sto.BrojMesta;
             db.Stolovi.Update(s);
             await db.SaveChangesAsync();
+        }
+
+        public static async Task<Racun> VratiRacun(_2OrderDbContext db, int idRacuna)
+        {
+            Racun r = await db.Racuni.Include(x => x.ListaPorudzbina).ThenInclude(x => x.Korisnik).Where(x => x.Id == idRacuna).FirstOrDefaultAsync();
+            return r;
         }
     }
 

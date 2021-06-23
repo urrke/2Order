@@ -10,7 +10,6 @@ C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\bin\Debug\netcoreapp3.1\
 C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.dll
 C:\Users\Nikola\source\repos\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.pdb
-E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csprojAssemblyReference.cache
 E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csproj.CoreCompileInputs.cache
 E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.AssemblyInfoInputs.cache
 E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.AssemblyInfo.cs
@@ -34,3 +33,4 @@ C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreap
 C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.dll
 C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.pdb
 C:\Users\urrke\Documents\git\AIPS\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.genruntimeconfig.cache
+E:\AIPSProjekat2Order\AIPSprojekat\2OrderLibrary\obj\Debug\netcoreapp3.1\2OrderLibrary.csprojAssemblyReference.cache

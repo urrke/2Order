@@ -17,9 +17,10 @@ namespace _2OrderLibrary
         public DbSet<Korisnik> Korisnici { get; set; }
         public DbSet<Dostava> Dostave { get; set; }
         public DbSet<Meni> StavkeMenija { get; set; }
-        public DbSet<Porudzbina> Porudzbine { get; set; }
+        public DbSet<Racun> Racuni { get; set; }
         public DbSet<Recenzija> Recenzije { get; set; }
         public DbSet<Sto> Stolovi { get; set; }
+        public DbSet<Porudzbina> Porudzbine { get; set; }
 
     }
 }
