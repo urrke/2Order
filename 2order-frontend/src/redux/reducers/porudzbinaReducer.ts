@@ -17,23 +17,29 @@ const initialState = {
 
 const porudzbinaReducer = (state: PorudzbinaState = initialState, action: PorudzbinaAction): PorudzbinaState => {
     switch(action.type){
-        case ActionType.VRATI_PORUDZBINU_LOADING:
-            return { ...state, loading: true, error: null }
-        case ActionType.VRATI_PORUDZBINU_SUCCESS:
-            return { loading: false, error: null, porudzbine: state.porudzbine }
-        case ActionType.VRATI_PORUDZBINU_ERROR:
-            return { ...state, loading: false, error: action.payload }
         case ActionType.VRATI_SVE_PORUDZBINE_LOADING:
             return { ...state, loading: true, error: null }
         case ActionType.VRATI_SVE_PORUDZBINE_SUCCESS:
             return { loading: false, error: null, porudzbine: state.porudzbine }
         case ActionType.VRATI_SVE_PORUDZBINE_ERROR:
             return { ...state, loading: false, error: action.payload }
-        case ActionType.VRATI_SVE_PORUDZBINE_KORISNIKA_LOADING:
+        case ActionType.VRATI_PORUDZBINU_LOADING:
             return { ...state, loading: true, error: null }
-        case ActionType.VRATI_SVE_PORUDZBINE_KORISNIKA_SUCCESS:
+        case ActionType.VRATI_PORUDZBINU_SUCCESS:
             return { loading: false, error: null, porudzbine: state.porudzbine }
-        case ActionType.VRATI_SVE_PORUDZBINE_KORISNIKA_ERROR:
+        case ActionType.VRATI_PORUDZBINU_ERROR:
+            return { ...state, loading: false, error: action.payload }
+        case ActionType.VRATI_PORUDZBINE_KORISNIKA_LOADING:
+            return { ...state, loading: true, error: null }
+        case ActionType.VRATI_PORUDZBINE_KORISNIKA_SUCCESS:
+            return { loading: false, error: null, porudzbine: state.porudzbine }
+        case ActionType.VRATI_PORUDZBINE_KORISNIKA_ERROR:
+            return { ...state, loading: false, error: action.payload }
+        case ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_LOADING:
+            return { ...state, loading: true, error: null }
+        case ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_SUCCESS:
+            return { loading: false, error: null, porudzbine: state.porudzbine }
+        case ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_ERROR:
             return { ...state, loading: false, error: action.payload }
         case ActionType.DODAJ_PORUDZBINU_LOADING:
             return { ...state, loading: true, error: null }
@@ -46,6 +52,18 @@ const porudzbinaReducer = (state: PorudzbinaState = initialState, action: Porudz
         case ActionType.OBRISI_PORUDZBINU_SUCCESS:
             return { loading: false, error: null, porudzbine: state.porudzbine }
         case ActionType.OBRISI_PORUDZBINU_ERROR:
+            return { ...state, loading: false, error: action.payload }
+        case ActionType.OBRISI_PORUDZBINE_LOADING:
+            return { ...state, loading: true, error: null }
+        case ActionType.OBRISI_PORUDZBINE_SUCCESS:
+            return { loading: false, error: null, porudzbine: state.porudzbine }
+        case ActionType.OBRISI_PORUDZBINE_ERROR:
+            return { ...state, loading: false, error: action.payload }
+        case ActionType.AZURIRAJ_PORUDZBINU_LOADING:
+            return { ...state, loading: true, error: null }
+        case ActionType.AZURIRAJ_PORUDZBINU_SUCCESS:
+            return { loading: false, error: null, porudzbine: state.porudzbine }
+        case ActionType.AZURIRAJ_PORUDZBINU_ERROR:
             return { ...state, loading: false, error: action.payload }
         default: 
             return state;

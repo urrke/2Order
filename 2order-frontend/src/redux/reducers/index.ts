@@ -1,18 +1,24 @@
 import { combineReducers } from 'redux'
 import stoReducer from '../reducers/stoReducer'
-import dostavaReducer from './dostavaReducer';
 import korisnikReducer from './korisnikReducer';
-import meniReducer from './meniReducer';
+import stavkaMenijaReducer from './stavkaMenijaReducer';
 import porudzbinaReducer from './porudzbinaReducer';
 import recenzijaReducer from './recenzijaReducer';
+import trenutniRacunReducer from './trenutniRacunReducer';
+import racunReducer from './racunReducer';
+import authReducer from './authReducer';
+import signalrReducer from './signalRReducer';
 
 const reducers = combineReducers({
-    stolovi: stoReducer,
     korisnici: korisnikReducer,
+    porudzbine: porudzbinaReducer,
+    racuni: racunReducer,
     recenzije: recenzijaReducer,
-    stavkeMenija: meniReducer,
-    dostave: dostavaReducer,
-    porudzbine: porudzbinaReducer
+    stavkeMenija: stavkaMenijaReducer,
+    stolovi: stoReducer,
+    trenutniRacun: trenutniRacunReducer,
+    auth: authReducer,
+    signalR: signalrReducer
 });
 
 export default reducers;

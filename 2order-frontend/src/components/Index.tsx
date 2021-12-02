@@ -1,16 +1,50 @@
 import { faPhoneVolume, faMotorcycle, faShoppingBasket, faLaptop } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
+import { useActions } from '../hooks/useActions';
+import { useCheckDuplicate } from '../hooks/useCheckDuplicate';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import StavkaMenija from '../model/StavkaMenija';
+import Footer from './layout/Footer';
+import Header from './layout/Header';
+
+interface StavkaIBrojPonavljanja {
+    stavka: StavkaMenija;
+    broj: number;
+}
 
 const Index: React.FC = () => {
-
+    const { dodajStavkuURacun, obrisiStavkuIzRacuna, dodajIznosURacun, dodajTrenutniRacun } = useActions();
+    const { connection } = useTypedSelector(state => state.signalR);
+    const { stavke } = useTypedSelector((state)=>state.trenutniRacun);
+    const [checkDuplicate] = useCheckDuplicate();
+    
     useEffect(()=>{
         window.scrollTo(0, 0);
-    }, [])
+        connection && connection.on("addToOrder", stavka => 
+        {
+            dodajStavkuURacun(stavka);
+        });
+        /*connection && connection.on("deleteFromOrder", stavkaId => 
+        {
+            obrisiStavkuIzRacuna(stavkaId);
+            handleDelete();
+            var suma = 0;
+            stavke.map((stavka: StavkaMenija) => {
+                suma = suma + stavka.cena;
+            });
+            dodajIznosURacun(suma);
+        });*/
+    }, []);
+
+    /*const handleDelete = () => {
+        dodajTrenutniRacun(checkDuplicate(stavke));
+    }*/
 
     return (
         <div>
+            <Header />
             <section id="home" className="w3l-banner py-5">
                 <div className="container pt-5 pb-md-4">
                     <div className="row align-items-center">
@@ -36,7 +70,6 @@ const Index: React.FC = () => {
                     </div>
                 </div>
             </section>
-            
             <div className="w3l-content-photo-5">
                 <div className="content pb-5 pt-md-5 pt-4">
                     <div className="container py-lg-4 py-md-3">
@@ -66,14 +99,13 @@ const Index: React.FC = () => {
                     </div>
                 </div>
             </div>
-            
             <section className="w3l-features-4">
                 <div className="features4-block text-center py-5">
                     <div className="container py-md-5 py-3">
                         <div className="row features4-grids">
                             <div className="col-lg-4 col-md-6">
                                 <div className="features4-grid">
-                                    <FontAwesomeIcon className='iconGrid' icon={faMotorcycle} />
+                                    <FontAwesomeIcon className='iconGrid fa-2x' icon={faMotorcycle} />
                                     <h5 className='index-grid'>Fast Delivery</h5>
                                     <p>
                                         Lorem ante ipsum primis in faucibus orci luctus eted ultrices posuere curae fers
@@ -83,7 +115,7 @@ const Index: React.FC = () => {
                             </div>
                             <div className="col-lg-4 col-md-6 mt-md-0 mt-4">
                                 <div className="features4-grid">
-                                    <FontAwesomeIcon className='iconGrid' icon={faShoppingBasket} />
+                                    <FontAwesomeIcon className='iconGrid fa-2x' icon={faShoppingBasket} />
                                     <h5 className='index-grid'>Fresh Ingredients</h5>
                                     <p>Lorem ante ipsum primis in faucibus orci luctus eted ultrices posuere curae fers
                                         luctus eted.</p>
@@ -91,7 +123,7 @@ const Index: React.FC = () => {
                             </div>
                             <div className="col-lg-4 col-md-6 mt-lg-0 mt-4">
                                 <div className="features4-grid">
-                                    <FontAwesomeIcon className='iconGrid' icon={faLaptop} />
+                                    <FontAwesomeIcon className='iconGrid fa-2x' icon={faLaptop} />
                                     <h5 className='index-grid'>Online Suport 24/7</h5>
                                     <p>
                                         Lorem ante ipsum primis in faucibus orci luctus eted ultrices posuere curae fers
@@ -103,7 +135,6 @@ const Index: React.FC = () => {
                     </div>
                 </div>
             </section>
-
             <section className="w3l-call-to-action-6">
                 <div className="call-vv-action py-5">
                     <div className="container py-md-4 py-3">
@@ -130,6 +161,7 @@ const Index: React.FC = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }

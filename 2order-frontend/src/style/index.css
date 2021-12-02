@@ -1,0 +1,644 @@
+/* APP */
+
+.loader {
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #0abf53;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+/*--- APP ---*/
+
+/* HEADER */
+
+.iconUtensils {
+    width: 25px;
+    height: 25px;
+    color: #0abf53;
+}
+
+.tab-active {
+    color: #0abf53;
+}
+
+.tab {
+    font-weight: 600;
+}
+
+.tab:hover {
+    font-weight: 600;
+    color: #0abf53;
+}
+
+/*--- HEADER ---*/
+
+/* NAVIGATOR */
+
+.breadcrumb-path {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin-right: 5px;
+}
+
+.inner-banner {
+    min-height: 200px;
+}
+
+.breadcrumb-section {
+    padding-top: 90px;
+    text-align: center;
+}
+
+/*--- NAVIGATOR ---*/
+
+/* FOOTER */
+
+.footer-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*--- FOOTER ---*/
+
+/* INDEX */
+
+.title {
+    font-size: 30px;
+}
+
+.iconGrid {
+    color: #ffc945;
+}
+
+.index-grid {
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: 600;
+    color: #060606;
+    margin: 25px 0 15px;
+}
+
+/*--- INDEX ---*/
+
+/* ABOUTUS */
+
+.faAboutUs {
+    color: #0abf53;
+}
+
+/*--- ABOUTUS ---*/
+
+/* CONTACT */
+
+.contactDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.contactDiv-left, 
+.contactDiv-right {
+    display: flex;
+    flex-direction: column;
+}
+
+/*--- CONTACT ---*/
+
+/* MENU */
+
+.menu-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.menu-choose {
+    color: #6b6768;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.active-menu-type {
+    background-color: #ffc945;
+}
+
+.active-menu-type:focus {
+    border: none;
+}
+
+/*--- MENU ---*/
+
+/* DRINKS */
+
+.drinks-food-container {
+    text-align: center;
+    margin-right: 250px;
+    margin-left: 200px;
+    margin-bottom: 100px;
+}
+
+.drink-meal-image {
+    height: 150px;
+}
+
+.selectGroup {
+    padding-top: 20px;
+    margin: 0 auto 0;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+.selectListGroup {
+    width: 80%;
+    font-size: 15px;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+.filter-label {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+/*--- DRINKS ---*/
+
+/* MODAL */
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+  
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.modal-cancel {
+    width: 100px;
+    height: 30px;
+    background-color: #ffc945;
+    color: white;
+    border: 1px solid #ffc945;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+    margin-right: 5px;
+}
+  
+.modal-submit {
+    width: 100px;
+    height: 30px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+}
+
+/*--- MODAL ---*/
+
+/* CURRENTORDER */
+
+.current-order {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.current-priceSum {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+}
+
+/*--- CURRENTORDER ---*/
+
+/* ORDERITEM */
+
+.order-item-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.order-item-button {
+    width: 50px;
+    height: 30px;
+    font-size: 13px;
+    background-color: #f44336;
+    color: white;
+    border: 1px solid #f44336;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.order-item-name {
+    font-size: 20px;
+}
+
+.order-item-price {
+    font-size: 13px;
+}
+
+/*--- ORDERITEM ---*/
+
+/* LOGIN */
+
+.login-image {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.login-container {
+    background-image: url('../images/login2.png');
+    height: 703px;
+}
+
+.login-field {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    overflow: auto;
+    min-height: 600px;
+    border: 1px solid #f4f4f4;
+    background-color: #f4f4f4;
+    padding-top: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.login-input {
+    width: 400px;
+    height: 40px;
+    background-color: white;
+    margin-bottom: 15px;
+    border: #6b6768 solid 1px;
+}
+
+.login-text {
+    margin-top: 20px;
+}
+
+.login-info {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.line {
+    border-top: #6b6768 solid 0.5px;
+    width: 35%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-button, .login-register-button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.login-button {
+    width: 120px;
+    height: 40px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.login-register-button {
+    width: 160px;
+    height: 40px;
+    background-color: #ffc945;
+    color: white;
+    border: 1px solid #ffc945;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.login-guest-button {
+    width: 200px;
+    height: 40px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-guest {
+    margin-top: 20px;
+}
+
+/*--- LOGIN ---*/
+
+/* REGISTER */ 
+
+.register-field {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    overflow: auto;
+    min-height: 500px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.register-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.register-button,
+.new-form-button {
+    width: 120px;
+    height: 40px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 25%;
+}
+
+.cancel-register-button,
+.cancel-new-form-button {
+    width: 120px;
+    height: 40px;
+    background-color: #ffc945;
+    color: white;
+    border: 1px solid #ffc945;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
+
+/*--- REGISTER ---*/
+
+/* PROFILE */
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding-left: 20px;
+}
+
+.profile-left, .admin-left {
+    width: 20%;
+}
+
+.profile-right, .admin-right {
+    width: 80%;
+    padding-top: 10px;
+}
+
+.pro-sidebar-layout {
+    color: #0abf53;
+    background-color: #f4f4f4;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.row-2, .row-3 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.column-2, .column-3 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.column-2 label, .column-3 label { 
+    margin-bottom: 0px;
+}
+
+.column-2 input { 
+    height: 40px;
+    width: 460px;
+}
+
+.column-3 input { 
+    height: 40px;
+    width: 300px;
+}
+
+.row-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.settings-save {
+    width: 120px;
+    height: 40px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.list-container {
+    margin-top: 20px;
+}
+
+/*--- PROFILE ---*/
+
+/* TABLE */
+
+.tables {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tables-buttons {
+    margin-top: 20px;
+}
+
+.tables-add {
+    width: 120px;
+    height: 40px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.tables-enable {
+    width: 120px;
+    height: 40px;
+    background-color: #ffc945;
+    color: white;
+    border: 1px solid #ffc945;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.x-button-wrap {
+    text-align: right;
+}
+
+.x-button, .x-button:active, .x-button:focus, .x-button::after {
+    border: none;
+    color: white;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.table-title {
+    text-align: center;
+    color: black;
+    cursor: default;
+}
+
+.table-button-wrap {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.table-button {
+    text-align: center;
+    font-size: 12px;
+    width: 70%;
+    height: 20px;
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#table {
+    cursor: pointer;
+}
+
+.tables-container {
+    display: flex;
+    border-radius: 3px;
+    justify-content: center;
+    align-self: center;
+    width: 1320px;
+    background-color: #ffc945;
+    margin-top: 30px;
+}
+
+.table-box-taken {
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    margin-bottom: 50px;
+    background-color: #f44336;
+    /*width: 100px;
+    height: 100px;*/
+}
+
+.table-box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    margin-bottom: 50px;
+    background-color: #b67441;
+    /*width: 100px;
+    height: 100px;*/
+}
+
+.table-box-moving {
+    display: flex;
+    flex-direction: column;
+    border: 3px white dashed;
+    border-radius: 3px;
+    margin-bottom: 50px;
+    background-color: #b67441;
+    /*width: 100px;
+    height: 100px;*/
+}
+
+/*--- TABLE ---*/
+
+/* NEW FORMS */
+
+.new-form-field {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    overflow: auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.new-form-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*--- NEW FORMS ---*/

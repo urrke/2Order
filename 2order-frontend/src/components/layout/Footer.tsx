@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
+                        <div className="d-flex below-section justify-content-between align-items-center">
                             <div className="columns text-lg-left">
                                 <p className="copy-text">2021 | 2Order | All rights reserved.</p>
                             </div>

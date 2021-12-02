@@ -1,78 +1,124 @@
 import Porudzbina from '../../model/Porudzbina';
+import StavkaMenija from '../../model/StavkaMenija';
 import { ActionType } from '../action-types'
 
-interface VratiPorudzbinuAction {
-    type: ActionType.VRATI_PORUDZBINU_LOADING;
-}
-
-interface VratiPorudzbinuActionSuccess {
-    type: ActionType.VRATI_PORUDZBINU_SUCCESS;
-    payload: Porudzbina;
-}
-
-interface VratiPorudzbinuActionError {
-    type: ActionType.VRATI_PORUDZBINU_ERROR;
-    payload: string;
-}
-
-interface VratiSvePorudzbineAction {
+interface VratiSvePorudzbineLoading {
     type: ActionType.VRATI_SVE_PORUDZBINE_LOADING;
 }
 
-interface VratiSvePorudzbineActionSuccess {
+interface VratiSvePorudzbineSuccess {
     type: ActionType.VRATI_SVE_PORUDZBINE_SUCCESS;
     payload: Porudzbina[];
 }
 
-interface VratiSvePorudzbineActionError {
+interface VratiSvePorudzbineError {
     type: ActionType.VRATI_SVE_PORUDZBINE_ERROR;
     payload: string;
 }
 
-interface VratiSvePorudzbineKorisnikaAction {
-    type: ActionType.VRATI_SVE_PORUDZBINE_KORISNIKA_LOADING;
+interface VratiPorudzbinuLoading {
+    type: ActionType.VRATI_PORUDZBINU_LOADING;
 }
 
-interface VratiSvePorudzbineKorisnikaActionSuccess {
-    type: ActionType.VRATI_SVE_PORUDZBINE_KORISNIKA_SUCCESS;
-    payload: Porudzbina[];
+interface VratiPorudzbinuSuccess {
+    type: ActionType.VRATI_PORUDZBINU_SUCCESS;
+    payload: Porudzbina;
 }
 
-interface VratiSvePorudzbineKorisnikaActionError {
-    type: ActionType.VRATI_SVE_PORUDZBINE_KORISNIKA_ERROR;
+interface VratiPorudzbinuError {
+    type: ActionType.VRATI_PORUDZBINU_ERROR;
     payload: string;
 }
 
-interface DodajPorudzbinuAction {
+interface VratiPorudzbineKorisnikaLoading {
+    type: ActionType.VRATI_PORUDZBINE_KORISNIKA_LOADING;
+}
+
+interface VratiPorudzbineKorisnikaSuccess {
+    type: ActionType.VRATI_PORUDZBINE_KORISNIKA_SUCCESS;
+    payload: Porudzbina[];
+}
+
+interface VratiPorudzbineKorisnikaError {
+    type: ActionType.VRATI_PORUDZBINE_KORISNIKA_ERROR;
+    payload: string;
+}
+
+interface VratiPorudzbineSaIstomSifromLoading {
+    type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_LOADING;
+}
+
+interface VratiPorudzbineSaIstomSifromSuccess {
+    type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_SUCCESS;
+    payload: Porudzbina[];
+}
+
+interface VratiPorudzbineSaIstomSifromError {
+    type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_ERROR;
+    payload: string;
+}
+
+interface DodajPorudzbinuLoading {
     type: ActionType.DODAJ_PORUDZBINU_LOADING;
 }
 
-interface DodajPorudzbinuActionSuccess {
+interface DodajPorudzbinuSuccess {
     type: ActionType.DODAJ_PORUDZBINU_SUCCESS;
     payload: Porudzbina;
 }
 
-interface DodajPorudzbinuActionError {
+interface DodajPorudzbinuError {
     type: ActionType.DODAJ_PORUDZBINU_ERROR;
     payload: string;
 }
 
-interface ObrisiPorudzbinuAction {
+interface ObrisiPorudzbinuLoading {
     type: ActionType.OBRISI_PORUDZBINU_LOADING;
 }
 
-interface ObrisiPorudzbinuActionSuccess {
+interface ObrisiPorudzbinuSuccess {
     type: ActionType.OBRISI_PORUDZBINU_SUCCESS;
-    payload: Porudzbina;
+    payload: number;
 }
 
-interface ObrisiPorudzbinuActionError {
+interface ObrisiPorudzbinuError {
     type: ActionType.OBRISI_PORUDZBINU_ERROR;
     payload: string;
 }
 
-export type PorudzbinaAction = VratiPorudzbinuAction | VratiPorudzbinuActionSuccess | VratiPorudzbinuActionError
-| VratiSvePorudzbineAction | VratiSvePorudzbineActionSuccess | VratiSvePorudzbineActionError
-| VratiSvePorudzbineKorisnikaAction | VratiSvePorudzbineKorisnikaActionSuccess | VratiSvePorudzbineKorisnikaActionError
-| DodajPorudzbinuAction | DodajPorudzbinuActionSuccess | DodajPorudzbinuActionError
-| ObrisiPorudzbinuAction | ObrisiPorudzbinuActionSuccess | ObrisiPorudzbinuActionError;
+interface ObrisiPorudzbineLoading {
+    type: ActionType.OBRISI_PORUDZBINE_LOADING;
+}
+
+interface ObrisiPorudzbineSuccess {
+    type: ActionType.OBRISI_PORUDZBINE_SUCCESS;
+    payload: number[];
+}
+
+interface ObrisiPorudzbineError {
+    type: ActionType.OBRISI_PORUDZBINE_ERROR;
+    payload: string;
+}
+
+interface AzurirajPorudzbinuLoading {
+    type: ActionType.AZURIRAJ_PORUDZBINU_LOADING;
+}
+
+interface AzurirajPorudzbinuSuccess {
+    type: ActionType.AZURIRAJ_PORUDZBINU_SUCCESS;
+    payload: Porudzbina;
+}
+
+interface AzurirajPorudzbinuError {
+    type: ActionType.AZURIRAJ_PORUDZBINU_ERROR;
+    payload: string;
+}
+
+export type PorudzbinaAction = VratiSvePorudzbineLoading | VratiSvePorudzbineSuccess | VratiSvePorudzbineError
+| VratiPorudzbinuLoading | VratiPorudzbinuSuccess | VratiPorudzbinuError
+| VratiPorudzbineKorisnikaLoading | VratiPorudzbineKorisnikaSuccess | VratiPorudzbineKorisnikaError
+| VratiPorudzbineSaIstomSifromLoading | VratiPorudzbineSaIstomSifromSuccess | VratiPorudzbineSaIstomSifromError
+| DodajPorudzbinuLoading | DodajPorudzbinuSuccess | DodajPorudzbinuError
+| ObrisiPorudzbinuLoading | ObrisiPorudzbinuSuccess | ObrisiPorudzbinuError
+| ObrisiPorudzbineLoading | ObrisiPorudzbineSuccess | ObrisiPorudzbineError
+| AzurirajPorudzbinuLoading | AzurirajPorudzbinuSuccess | AzurirajPorudzbinuError;

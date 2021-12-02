@@ -1,13 +1,14 @@
-import Korisnik from './Korisnik'
+import Korisnik from './Korisnik';
 
 interface Sto {
     id: number;
-    korisnikId: number;
-    korisnik: Korisnik;
-    stavkaMenijaId: number;
-    sifra: string;
-    vreme: Date;
-    adresa: string;
+    brojMesta: number;
+    slobodan: boolean;
+    oznaka: string;
+    x: number;
+    y: number;
+    konobarId: number;
+    konobar: Korisnik;
 }
 
 export default Sto;

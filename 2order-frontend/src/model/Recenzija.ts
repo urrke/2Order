@@ -1,12 +1,12 @@
-import Korisnik from "./Korisnik";
+import Racun from "./Racun";
 
 interface Recenzija {
     id: number;
     ocena: number;
     komentar: string;
-    datum: Date;
-    korisnikId: number;
-    korisnik: Korisnik;
+    vreme: Date;
+    racunId: number;
+    racun: Racun;
 }
 
 export default Recenzija;

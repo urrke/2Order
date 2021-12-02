@@ -10,24 +10,24 @@ const Messages: React.FC = () => {
     const [connection, setConnection] = useState<signalR.HubConnection>();
 
     useEffect(() => {
-        var conn = new signalR.HubConnectionBuilder().withUrl("https://localhost:44344/NotificationHub").build();
+        var conn = new signalR.HubConnectionBuilder().withUrl("https://localhost:44382/NotificationHub").build();
         setConnection(conn);
         if(conn !== undefined) {
             conn.start();
             conn.on("sendOrderToUser", name => 
             {
-                console.log(name);
+                console.log("aaaa");
             });
         }
     }, [])
 
     const onChangeTable = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setTable(e.target.value);
-        connection && connection.invoke("AddUserToTable", e.target.value);
+        connection && connection.invoke("DodajKorisnikaZaSto", e.target.value);
     }
 
     const onAddMenuItem = () => {
-        connection && connection.invoke("SendMyOrder", name, price, table);
+        connection && connection.invoke("PosaljiPorudzbinu", name, table);
     }
 
     return (

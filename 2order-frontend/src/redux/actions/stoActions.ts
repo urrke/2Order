@@ -1,108 +1,165 @@
 import Sto from '../../model/Sto';
 import { ActionType } from '../action-types'
 
-interface VratiStoAction {
-    type: ActionType.VRATI_STO_LOADING;
+interface Position {
+    id: number;
+    x: number;
+    y: number;
 }
 
-interface VratiStoActionSuccess {
-    type: ActionType.VRATI_STO_SUCCESS;
-    payload: Sto;
-}
-
-interface VratiStoActionError {
-    type: ActionType.VRATI_STO_ERROR;
-    payload: string;
-}
-
-interface VratiSveStoloveAction {
+interface VratiSveStoloveLoading {
     type: ActionType.VRATI_SVE_STOLOVE_LOADING;
 }
 
-interface VratiSveStoloveActionSuccess {
+interface VratiSveStoloveSuccess {
     type: ActionType.VRATI_SVE_STOLOVE_SUCCESS;
     payload: Sto[];
 }
 
-interface VratiSveStoloveActionError {
+interface VratiSveStoloveError {
     type: ActionType.VRATI_SVE_STOLOVE_ERROR;
     payload: string;
 }
 
-interface VratiSveStoloveKorisnikaAction {
-    type: ActionType.VRATI_SVE_STOLOVE_KORISNIKA_LOADING;
+interface VratiStoLoading {
+    type: ActionType.VRATI_STO_LOADING;
 }
 
-interface VratiSveStoloveKorisnikaActionSuccess {
-    type: ActionType.VRATI_SVE_STOLOVE_KORISNIKA_SUCCESS;
-    payload: Sto[];
+interface VratiStoSuccess {
+    type: ActionType.VRATI_STO_SUCCESS;
+    payload: Sto;
 }
 
-interface VratiSveStoloveKorisnikaActionError {
-    type: ActionType.VRATI_SVE_STOLOVE_KORISNIKA_ERROR;
+interface VratiStoError {
+    type: ActionType.VRATI_STO_ERROR;
     payload: string;
 }
 
-interface VratiSveSlobodneIliZauzeteStoloveAction {
+interface VratiStoloveKonobaraLoading {
+    type: ActionType.VRATI_STOLOVE_KONOBARA_LOADING;
+}
+
+interface VratiStoloveKonobaraSuccess {
+    type: ActionType.VRATI_STOLOVE_KONOBARA_SUCCESS;
+    payload: Sto[];
+}
+
+interface VratiStoloveKonobaraError {
+    type: ActionType.VRATI_STOLOVE_KONOBARA_ERROR;
+    payload: string;
+}
+
+interface VratiSveSlobodneIliZauzeteStoloveLoading {
     type: ActionType.VRATI_SVE_SLOBODNE_ILI_ZAUZETE_STOLOVE_LOADING;
 }
 
-interface VratiSveSlobodneIliZauzeteStoloveActionSuccess {
+interface VratiSveSlobodneIliZauzeteStoloveSuccess {
     type: ActionType.VRATI_SVE_SLOBODNE_ILI_ZAUZETE_STOLOVE_SUCCESS;
     payload: Sto[];
 }
 
-interface VratiSveSlobodneIliZauzeteStoloveActionError {
+interface VratiSveSlobodneIliZauzeteStoloveError {
     type: ActionType.VRATI_SVE_SLOBODNE_ILI_ZAUZETE_STOLOVE_ERROR;
     payload: string;
 }
 
-interface DodajStoAction {
+interface DodajStoLoading {
     type: ActionType.DODAJ_STO_LOADING;
 }
 
-interface DodajStoActionSuccess {
+interface DodajStoSuccess {
     type: ActionType.DODAJ_STO_SUCCESS;
     payload: Sto;
 }
 
-interface DodajStoActionError {
+interface DodajStoError {
     type: ActionType.DODAJ_STO_ERROR;
     payload: string;
 }
 
-interface ObrisiStoAction {
+interface ObrisiStoLoading {
     type: ActionType.OBRISI_STO_LOADING;
 }
 
-interface ObrisiStoActionSuccess {
+interface ObrisiStoSuccess {
     type: ActionType.OBRISI_STO_SUCCESS;
-    payload: Sto;
+    payload: number;
 }
 
-interface ObrisiStoActionError {
+interface ObrisiStoError {
     type: ActionType.OBRISI_STO_ERROR;
     payload: string;
 }
 
-interface AzurirajStoAction {
+interface ObrisiStoloveLoading {
+    type: ActionType.OBRISI_STOLOVE_LOADING;
+}
+
+interface ObrisiStoloveSuccess {
+    type: ActionType.OBRISI_STOLOVE_SUCCESS;
+    payload: number[];
+}
+
+interface ObrisiStoloveError {
+    type: ActionType.OBRISI_STOLOVE_ERROR;
+    payload: string;
+}
+
+interface AzurirajStoLoading {
     type: ActionType.AZURIRAJ_STO_LOADING;
 }
 
-interface AzurirajStoActionSuccess {
+interface AzurirajStoSuccess {
     type: ActionType.AZURIRAJ_STO_SUCCESS;
     payload: Sto;
 }
 
-interface AzurirajStoActionError {
+interface AzurirajStoError {
     type: ActionType.AZURIRAJ_STO_ERROR;
     payload: string;
 }
 
-export type StoAction = VratiStoAction | VratiStoActionSuccess | VratiStoActionError
-| VratiSveStoloveAction | VratiSveStoloveActionSuccess | VratiSveStoloveActionError
-| VratiSveStoloveKorisnikaAction | VratiSveStoloveKorisnikaActionSuccess | VratiSveStoloveKorisnikaActionError
-| VratiSveSlobodneIliZauzeteStoloveAction | VratiSveSlobodneIliZauzeteStoloveActionSuccess | VratiSveSlobodneIliZauzeteStoloveActionError
-| DodajStoAction | DodajStoActionSuccess | DodajStoActionError
-| ObrisiStoAction | ObrisiStoActionSuccess | ObrisiStoActionError
-| AzurirajStoAction | AzurirajStoActionSuccess | AzurirajStoActionError;
+interface AzurirajStoloveLoading {
+    type: ActionType.AZURIRAJ_STOLOVE_LOADING;
+}
+
+interface AzurirajStoloveSuccess {
+    type: ActionType.AZURIRAJ_STOLOVE_SUCCESS;
+    payload: Sto[];
+}
+
+interface AzurirajStoloveError {
+    type: ActionType.AZURIRAJ_STOLOVE_ERROR;
+    payload: string;
+}
+
+interface ZauzmiIliOslobodiStoLoading {
+    type: ActionType.ZAUZMI_ILI_OSLOBODI_STO_LOADING;
+}
+
+interface ZauzmiIliOslobodiStoSuccess {
+    type: ActionType.ZAUZMI_ILI_OSLOBODI_STO_SUCCESS;
+    payload: Sto;
+}
+
+interface ZauzmiIliOslobodiStoError {
+    type: ActionType.ZAUZMI_ILI_OSLOBODI_STO_ERROR;
+    payload: string;
+}
+
+interface AzurirajPozicijuStola {
+    type: ActionType.AZURIRAJ_POZICIJU_STOLA;
+    payload: Position;
+}
+
+export type StoAction = VratiSveStoloveLoading | VratiSveStoloveSuccess | VratiSveStoloveError
+| VratiStoLoading | VratiStoSuccess | VratiStoError
+| VratiStoloveKonobaraLoading | VratiStoloveKonobaraSuccess | VratiStoloveKonobaraError
+| VratiSveSlobodneIliZauzeteStoloveLoading | VratiSveSlobodneIliZauzeteStoloveSuccess | VratiSveSlobodneIliZauzeteStoloveError
+| DodajStoLoading | DodajStoSuccess | DodajStoError
+| ObrisiStoLoading | ObrisiStoSuccess | ObrisiStoError
+| ObrisiStoloveLoading | ObrisiStoloveSuccess | ObrisiStoloveError
+| AzurirajStoLoading | AzurirajStoSuccess | AzurirajStoError
+| AzurirajStoloveLoading | AzurirajStoloveSuccess | AzurirajStoloveError
+| ZauzmiIliOslobodiStoLoading | ZauzmiIliOslobodiStoSuccess | ZauzmiIliOslobodiStoError
+| AzurirajPozicijuStola;

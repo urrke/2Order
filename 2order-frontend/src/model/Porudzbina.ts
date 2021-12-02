@@ -1,17 +1,16 @@
 import Korisnik from "./Korisnik";
-import Meni from "./Meni";
-import Sto from "./Sto";
+import Racun from "./Racun";
+import StavkaMenija from "./StavkaMenija";
 
 interface Porudzbina {
     id: number;
     korisnikId: number;
     korisnik: Korisnik;
     stavkaMenijaId: number;
-    stavkaMenija: Meni;
-    stoId: number;
-    sto: Sto;
+    stavkaMenija: StavkaMenija;
+    racunId: number;
+    racun: Racun;
     sifra: string;
-    vreme: Date;
 }
 
 export default Porudzbina;

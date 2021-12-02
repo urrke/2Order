@@ -1,10 +1,13 @@
 interface Korisnik {
     id: number;
-    tipKorisnika: string;
     ime: string;
+    tip: string;
     prezime: string;
     email: string;
     sifra: string;
+    brojTelefona: string;
+    grad: string;
+    adresa: string;
 }
 
 export default Korisnik;

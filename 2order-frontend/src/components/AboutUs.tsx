@@ -1,7 +1,9 @@
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
+import Footer from "./layout/Footer";
 import Header from "./layout/Header";
+import Navigator from "./layout/Navigator";
 
 const AboutUs: React.FC = () => {
 
@@ -11,8 +13,8 @@ const AboutUs: React.FC = () => {
 
     return(
         <div>
-            <Header from={'Home'} to={'About Us'} path={'/home'}/>
-
+            <Header />
+            <Navigator from={'Home'} to={'About Us'} path={'/home'}/>
             <section className="w3l-about2">
                 <div className="content-with-photo4-block">
                     <div className="container">
@@ -45,7 +47,6 @@ const AboutUs: React.FC = () => {
                     </div>
                 </div>
             </section>
-
             <section className="w3_stats py-5" id="stats">
                 <div className="container py-md-4 py-3">
                     <div className="w3-stats">
@@ -78,6 +79,7 @@ const AboutUs: React.FC = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }

@@ -1,15 +1,18 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
+import './style/index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import { SnackbarProvider } from 'notistack';
+import Home from './components/Home';
+import Messages from './components/Messages';
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App />
+      <SnackbarProvider maxSnack={2}>
+        <Home />
+      </SnackbarProvider>
     </Router>
   </Provider>,
   document.getElementById('root')
