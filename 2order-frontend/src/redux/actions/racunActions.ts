@@ -29,20 +29,6 @@ interface VratiRacunError {
     payload: string;
 }
 
-interface VratiRacunePoTipuLoading {
-    type: ActionType.VRATI_RACUNE_PO_TIPU_LOADING;
-}
-
-interface VratiRacunePoTipuSuccess {
-    type: ActionType.VRATI_RACUNE_PO_TIPU_SUCCESS;
-    payload: Racun[];
-}
-
-interface VratiRacunePoTipuError {
-    type: ActionType.VRATI_RACUNE_PO_TIPU_ERROR;
-    payload: string;
-}
-
 interface VratiRacunePoDatumuLoading {
     type: ActionType.VRATI_RACUNE_PO_DATUMU_LOADING;
 }
@@ -143,7 +129,6 @@ interface AzurirajRacunError {
 
 export type RacunAction = VratiSveRacuneLoading | VratiSveRacuneSuccess | VratiSveRacuneError
 | VratiRacunLoading | VratiRacunSuccess | VratiRacunError
-| VratiRacunePoTipuLoading | VratiRacunePoTipuSuccess | VratiRacunePoTipuError
 | VratiRacunePoDatumuLoading | VratiRacunePoDatumuSuccess | VratiRacunePoDatumuError
 | VratiRacunePreDatumaLoading | VratiRacunePreDatumaSuccess | VratiRacunePreDatumaError
 | VratiRacuneKorisnikaLoading | VratiRacuneKorisnikaSuccess | VratiRacuneKorisnikaError

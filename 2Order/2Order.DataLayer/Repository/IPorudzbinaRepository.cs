@@ -15,6 +15,5 @@ namespace _2Order.DataLayer.Repository
         Task<List<Porudzbina>> VratiPorudzbineKorisnika(int id);
         Task<List<Porudzbina>> VratiPorudzbineRacuna(int id);
         Task<List<Porudzbina>> VratiPorudzbineSaStavkomMenija(int id);
-        Task<List<Porudzbina>> VratiPorudzbineSaIstomSifrom(string password);
     }
 }

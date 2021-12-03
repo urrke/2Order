@@ -34,12 +34,6 @@ namespace _2Order.DataLayer.Services
             return result;
         }
 
-        public async Task<List<Porudzbina>> VratiPorudzbineSaIstomSifrom(string password)
-        {
-            List<Porudzbina> result = await unitOfWork.PorudzbinaRepository.VratiPorudzbineSaIstomSifrom(password);
-            return result;
-        }
-
         public async Task<Porudzbina> DodajPorudzbinu(Porudzbina d)
         {
             var porudzbina = unitOfWork.PorudzbinaRepository.Add(d);

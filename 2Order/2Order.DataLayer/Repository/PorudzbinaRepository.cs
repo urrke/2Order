@@ -44,10 +44,5 @@ namespace _2Order.DataLayer.Repository
         {
             return await Find(x => x.StavkaMenijaId == id).ToListAsync();
         }
-
-        public async Task<List<Porudzbina>> VratiPorudzbineSaIstomSifrom(string password)
-        {
-            return await FindWithIncludes(x => x.Sifra == password, x => x.StavkaMenija, x => x.Korisnik).ToListAsync();
-        }
     }
 }

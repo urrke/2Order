@@ -9,7 +9,8 @@ import {
     Filter,
     CommandModel,
     CommandColumn,
-    Resize
+    Resize,
+    CommandClickEventArgs
 } from '@syncfusion/ej2-react-grids';
 import {
     editSettings,
@@ -28,8 +29,8 @@ const Bills: React.FC = () => {
     const { vratiSveRacune, obrisiRacune } = useActions();
     const { racuni, error, loading } = useTypedSelector(state => state.racuni);
     const [openDetails, setOpenDetails] = useState<boolean>(false);
-    let open: boolean = false;
-    const commands: CommandModel[] = [{ buttonOption: { content: 'Details', click: () => {onClick();}}}];
+    const [racunId, setRacunId] = useState<number>(0);
+    const commands: CommandModel[] = [{ buttonOption: { content: 'Details' }}];
     const grid = useRef<GridComponent>(null);
 
     useEffect(() => {
@@ -48,18 +49,18 @@ const Bills: React.FC = () => {
         } 
     }
 
-    const onClick = () => {
-        open = true;
-        console.log('uros');
-    }
-
     const closeModal = () => {
-        open = false;
+        setOpenDetails(false);
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        closeModal();
+    const onCommandClick = (arg: CommandClickEventArgs | undefined) => {
+        if(arg === undefined)
+            return;
+        else {
+            var racun = arg.rowData as Racun;
+            setRacunId(racun.id);
+            setOpenDetails(true);
+        }
     }
 
     return (
@@ -79,15 +80,12 @@ const Bills: React.FC = () => {
                         allowPaging={true} 
                         pageSettings={pageSettings}
                         allowResizing={true}
+                        commandClick={onCommandClick}
                         toolbarClick={clickHandler}
                         ref={grid}
                     >
                         <ColumnsDirective>
                             <ColumnDirective type="checkbox" width="50" />
-                            <ColumnDirective
-                                field="tip"
-                                headerText="Type"
-                            ></ColumnDirective>
                             <ColumnDirective
                                 field="iznos"
                                 headerText="Total"
@@ -110,7 +108,7 @@ const Bills: React.FC = () => {
                         <Inject services={[Page, Toolbar, Edit, Filter, CommandColumn, Resize]} />
                     </GridComponent>
                 </div>
-                {open && <BillDetails isOpen={open} closeModal={closeModal} handleSubmit={handleSubmit}/>}
+                {openDetails && <BillDetails isOpen={openDetails} closeModal={closeModal} racunId={racunId}/>}
             </div>}
             </>}
         </div>

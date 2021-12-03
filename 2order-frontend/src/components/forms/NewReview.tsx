@@ -3,45 +3,32 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { useStyles } from '../../formSettings';
 import { useActions } from '../../hooks/useActions';
-import { useEffect, useState } from 'react';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-import Sto from '../../model/Sto';
-import Korisnik from '../../model/Korisnik';
+import { useState } from 'react';
+import Recenzija from '../../model/Recenzija';
 
 interface ChildProps {
     isOpen: boolean;
     closeModal: () => void;
+    racunId: number;
 }
 
-const NewTable: React.FC<ChildProps> = ({isOpen, closeModal}) => {
+const NewReview: React.FC<ChildProps> = ({isOpen, closeModal, racunId}) => {
     const classes = useStyles();
-    const { dodajSto, vratiKorisnikePoTipu } = useActions();
-    const [name, setName] = useState<string>('');
-    const [numOfSeats, setNumOfSeats] = useState<string>('');
-    const { korisnici } = useTypedSelector(state => state.korisnici);
-    const [waiter, setWaiter] = useState<string>('');
-
-    useEffect(() => {
-        vratiKorisnikePoTipu("Radnik");
-    }, []);
+    const { dodajRecenziju } = useActions();
+    const [ocena, setOcena] = useState<number>();
+    const [komentar, setKomentar] = useState<string>('');
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        var table = { 
-            oznaka: name, 
-            brojMesta: parseInt(numOfSeats), 
-            slobodan: true, 
-            konobarId: parseInt(waiter), 
-            x: 10, 
-            y: 10 
-        } as Sto;
+        var recenzija = { 
+            id: 0,
+            komentar,
+            ocena,
+            racunId,
+            vreme: new Date()
+        } as Recenzija;
         e.preventDefault();
         closeModal();
-        dodajSto(table);
-    }
-
-    const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        event.preventDefault();
-        setWaiter(event.currentTarget.value);
+        dodajRecenziju(recenzija);
     }
 
     return (
@@ -60,27 +47,25 @@ const NewTable: React.FC<ChildProps> = ({isOpen, closeModal}) => {
                         <div className="new-form-container">
                             <div className="new-form-field">
                                 <div className="login-text">
-                                    <h5>Add new table</h5>
+                                    <h5>Add new review</h5>
                                 </div>
                                 <div className="login-info">
                                     <input 
-                                        placeholder="Name" 
-                                        value={name}
-                                        onChange={(e) => setName(e.currentTarget.value)} 
+                                        placeholder="Rating" 
+                                        value={ocena}
+                                        onChange={(e) => setOcena(e.currentTarget.valueAsNumber)} 
                                         className="login-input" 
-                                        type="text" 
+                                        type="number"
+                                        min={1}
+                                        max={10} 
                                     />
                                     <input 
-                                        placeholder="Num of seats" 
-                                        value={numOfSeats}
-                                        onChange={(e) => setNumOfSeats(e.currentTarget.value)} 
+                                        placeholder="Comment" 
+                                        value={komentar}
+                                        onChange={(e) => setKomentar(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
                                     />
-                                    <select className="login-input" onChange={onChange}>
-                                        <option value="0">Choose waiter</option>
-                                        {korisnici.map((k: Korisnik) => <option key={k.id} value={k.id}>{k.ime} {k.prezime}</option>)}
-                                    </select>
                                 </div>
                                 <div className="new-form-options">
                                     <button className="cancel-new-form-button" onClick={closeModal}>Cancel</button>
@@ -95,4 +80,4 @@ const NewTable: React.FC<ChildProps> = ({isOpen, closeModal}) => {
     )
 }
 
-export default NewTable;
+export default NewReview;

@@ -35,12 +35,6 @@ const porudzbinaReducer = (state: PorudzbinaState = initialState, action: Porudz
             return { loading: false, error: null, porudzbine: state.porudzbine }
         case ActionType.VRATI_PORUDZBINE_KORISNIKA_ERROR:
             return { ...state, loading: false, error: action.payload }
-        case ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_LOADING:
-            return { ...state, loading: true, error: null }
-        case ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_SUCCESS:
-            return { loading: false, error: null, porudzbine: state.porudzbine }
-        case ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_ERROR:
-            return { ...state, loading: false, error: action.payload }
         case ActionType.DODAJ_PORUDZBINU_LOADING:
             return { ...state, loading: true, error: null }
         case ActionType.DODAJ_PORUDZBINU_SUCCESS:

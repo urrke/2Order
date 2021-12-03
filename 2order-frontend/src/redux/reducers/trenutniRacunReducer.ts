@@ -1,7 +1,8 @@
+import Porudzbina from '../../model/Porudzbina';
 import StavkaMenija from '../../model/StavkaMenija';
 import { ActionType } from '../action-types/index'
 import { TrenutniRacunAction } from '../actions/trenutniRacunActions'
-import { findAndDelete, pushToArray } from './functionsForChangeState'
+import { assignOrder, deleteOrder, findAndDelete, pushToArray } from './functionsForChangeState'
 
 interface StavkaIBrojPonavljanja {
     stavka: StavkaMenija;
@@ -11,6 +12,7 @@ interface StavkaIBrojPonavljanja {
 interface TrenutniRacunState {
     stavke: StavkaMenija[];
     racun: StavkaIBrojPonavljanja[];
+    porudzbine: Porudzbina[];
     iznos: number | null;
     idStola: number | null;
     nazivStola: string | null;
@@ -20,6 +22,7 @@ interface TrenutniRacunState {
 const initialState = {
     stavke: [],
     racun: [],
+    porudzbine: [],
     iznos: null,
     idStola: null,
     nazivStola: null,
@@ -34,6 +37,10 @@ const trenutniRacunReducer = (state: TrenutniRacunState = initialState, action: 
             return { ...state, stavke: pushToArray(action.payload, state.stavke) }
         case ActionType.OBRISI_STAVKU_IZ_TRENUTNOG_RACUNA:
             return { ...state, stavke: findAndDelete(action.payload, state.stavke) }
+        case ActionType.DODAJ_PORUDZBINU_U_TRENUTNI_RACUN:
+            return { ...state, porudzbine: assignOrder(action.payload.stavka, action.payload.korisnikId, state.porudzbine) }
+        case ActionType.OBRISI_PORUDZBINU_IZ_TRENUTNOG_RACUNA:
+            return { ...state, porudzbine: deleteOrder(action.payload.idKorisnika, action.payload.idStavke, state.porudzbine) }
         case ActionType.DODAJ_IZNOS_U_TRENUTNI_RACUN:
             return { ...state, iznos: action.payload }
         case ActionType.VRATI_IZNOS_IZ_TRENUTNOG_RACUNA:

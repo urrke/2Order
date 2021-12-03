@@ -21,6 +21,7 @@ namespace _2Order.WebAPI.Controllers
             this.stavkaMenijaService = stavkaMenijaService;
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiCeoMeni")]
         public async Task<IActionResult> VratiCeoMeni()
@@ -49,6 +50,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await stavkaMenijaService.VratiStavkeMenijaPoGrupi(grupa));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPost]
         [Route("dodajStavku")]
         public async Task<IActionResult> DodajStavku([FromBody] StavkaMenija s)
@@ -56,6 +58,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await stavkaMenijaService.DodajStavku(s));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpDelete]
         [Route("obrisiStavku/{id}")]
         public async Task<IActionResult> ObrisiStavku(int id)
@@ -64,6 +67,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Radnik")]
         [HttpPost]
         [Route("obrisiStavke")]
         public async Task<IActionResult> ObrisiStavke([FromBody] List<int> ids)
@@ -72,6 +76,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPut]
         [Route("azurirajStavku")]
         public async Task<IActionResult> AzurirajStavku([FromBody] StavkaMenija s)
@@ -80,6 +85,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPut]
         [Route("azurirajStavke")]
         public async Task<IActionResult> AzurirajStavke([FromBody] List<StavkaMenija> stavke)

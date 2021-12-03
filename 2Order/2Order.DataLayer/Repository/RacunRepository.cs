@@ -26,19 +26,13 @@ namespace _2Order.DataLayer.Repository
         {
             return await context.Set<Racun>().Where(x => x.Id == id)
                    .Include(r => r.ListaPorudzbina).ThenInclude(p => p.StavkaMenija)
+                   .Include(r => r.Sto).ThenInclude(s => s.Konobar)
                    .Include(r => r.ListaPorudzbina).ThenInclude(p => p.Korisnik).FirstOrDefaultAsync();
         }
 
         public async Task<List<Racun>> VratiRacune(List<int> ids)
         {
             return await Find(x => ids.Contains(x.Id)).ToListAsync();
-        }
-
-        public async Task<List<Racun>> VratiRacunePoTipu(string tip)
-        {
-            return await context.Set<Racun>().Where(x => x.Tip == tip)
-                   .Include(r => r.ListaPorudzbina).ThenInclude(p => p.StavkaMenija)
-                   .Include(r => r.ListaPorudzbina).ThenInclude(p => p.Korisnik).ToListAsync();
         }
 
         public async Task<List<Racun>> VratiRacuneKorisnika(int korisnikId)

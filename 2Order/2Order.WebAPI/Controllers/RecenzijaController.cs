@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using _2Order.DataLayer.Services;
 using _2Order.Domain.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -20,6 +21,7 @@ namespace _2Order.WebAPI.Controllers
             this.recenzijaService = recenzijaService;
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiSveRecenzije")]
         public async Task<IActionResult> VratiSveRecenzije()
@@ -34,6 +36,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await recenzijaService.VratiRecenziju(id));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiRecenzijuRacuna/{id}")]
         public async Task<IActionResult> VratiRecenzijuRacuna(int id)
@@ -41,6 +44,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await recenzijaService.VratiRecenzijuRacuna(id));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiRecenzijeKorisnika/{id}")]
         public async Task<IActionResult> VratiRecenzijeKorisnika(int id)
@@ -48,6 +52,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await recenzijaService.VratiRecenzijeKorisnika(id));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiRecenzijePoDatumu/{datum}")]
         public async Task<IActionResult> VratiRecenzijePoDatumu(DateTime datum)
@@ -55,6 +60,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await recenzijaService.VratiRecenzijePoDatumu(datum));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPost]
         [Route("dodajRecenziju")]
         public async Task<IActionResult> DodajRecenziju([FromBody] Recenzija r)
@@ -62,6 +68,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await recenzijaService.DodajRecenziju(r));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpDelete]
         [Route("obrisiRecenziju/{id}")]
         public async Task<IActionResult> ObrisiRecenziju(int id)
@@ -70,6 +77,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPost]
         [Route("obrisiRecenzije")]
         public async Task<IActionResult> ObrisiRecenzije([FromBody] List<int> ids)
@@ -78,6 +86,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPut]
         [Route("azurirajRecenziju")]
         public async Task<IActionResult> AzurirajRecenziju([FromBody] Recenzija r)

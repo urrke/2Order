@@ -14,8 +14,9 @@ const ProfileSettings: React.FC = () => {
     const [tip, setTip] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [brojTel, setBrojTel] = useState<string>('');
-    const [staraSifra, setStaraSifra] = useState<string>('');
-    const [novaSifra, setNovaSifra] = useState<string>('');
+    const [ponovoSifra, setPonovoSifra] = useState<string>('');
+    const [sifra, setSifra] = useState<string>('');
+    const [changePass, setChangePass] = useState<boolean>(false);
 
     useEffect(() => {
         if(data) {
@@ -38,11 +39,30 @@ const ProfileSettings: React.FC = () => {
             grad,
             brojTelefona: brojTel,
             email,
-            sifra: novaSifra,
             tip,
             id
         }
-        azurirajKorisnika(k);
+        if(changePass) {
+            const kor: Korisnik = {...k, sifra }
+            azurirajKorisnika(kor);
+        } else {
+            azurirajKorisnika(k);
+        }
+    }
+
+    const validatePass = (e: React.FormEvent<HTMLInputElement>) => {
+        if(e.currentTarget.value !== sifra)
+        {
+            e.currentTarget.setCustomValidity('Passwords do not match!');
+        }
+        else
+        {
+            e.currentTarget.setCustomValidity('');
+        }
+    }
+
+    const onChangePass = () => {
+        setChangePass(!changePass);
     }
 
     return (
@@ -53,6 +73,7 @@ const ProfileSettings: React.FC = () => {
                     <div className="column-2">
                         <label>First name</label>
                         <input 
+                            className="settings-input"
                             value={ime} 
                             onChange={(e) => setIme(e.currentTarget.value)}
                             required
@@ -61,6 +82,7 @@ const ProfileSettings: React.FC = () => {
                     <div className="column-2">
                         <label>Last name</label>
                         <input 
+                            className="settings-input"
                             value={prezime} 
                             onChange={(e) => setPrezime(e.currentTarget.value)}
                             required
@@ -71,6 +93,7 @@ const ProfileSettings: React.FC = () => {
                     <div className="column-2">
                         <label>Email</label>
                         <input 
+                            className="settings-input"
                             value={email} 
                             onChange={(e) => setEmail(e.currentTarget.value)}
                             required
@@ -80,6 +103,7 @@ const ProfileSettings: React.FC = () => {
                     <div className="column-2">
                         <label>Phone</label>
                         <input 
+                            className="settings-input"
                             value={brojTel}
                             onChange={(e) => setBrojTel(e.currentTarget.value)}
                             required
@@ -90,6 +114,7 @@ const ProfileSettings: React.FC = () => {
                     <div className="column-2">
                         <label>City</label>
                         <input 
+                            className="settings-input"
                             value={grad} 
                             onChange={(e) => setGrad(e.currentTarget.value)}
                             required
@@ -98,6 +123,7 @@ const ProfileSettings: React.FC = () => {
                     <div className="column-2">
                         <label>Address</label>
                         <input 
+                            className="settings-input"
                             value={adresa} 
                             onChange={(e) => setAdresa(e.currentTarget.value)}
                             required
@@ -106,25 +132,35 @@ const ProfileSettings: React.FC = () => {
                 </div>
                 <div className="row-2">
                     <div className="column-2">
-                        <label>Old password</label>
+                        <label>New password</label>
                         <input 
-                            value={staraSifra} 
-                            onChange={(e) => setStaraSifra(e.currentTarget.value)} 
+                            className="settings-input"
+                            value={sifra} 
+                            onChange={(e) => setSifra(e.currentTarget.value)} 
                             type="password"
                             required
+                            minLength={6}
+                            disabled={!changePass}
                         />
                     </div>
                     <div className="column-2">
-                        <label>New password</label>
+                        <label>Repeat new password</label>
                         <input 
-                            value={novaSifra} 
-                            onChange={(e) => setNovaSifra(e.currentTarget.value)}
+                            className="settings-input"
+                            value={ponovoSifra} 
+                            onChange={(e) => setPonovoSifra(e.currentTarget.value)}
                             type="password"
+                            onInput={(e) => validatePass(e)}
+                            required
+                            minLength={6}
+                            disabled={!changePass}
                         />
                     </div>
                 </div>
                 <div className="row-buttons">
-                    <button className="settings-save" type="submit" >Save</button>  
+                    <button className="settings-save" type="submit" >Save</button>
+                    <input className="change-pass-checkbox" type="checkbox" checked={changePass} onChange={onChangePass}/>
+                    <label className="change-pass-label">Change password</label>
                 </div>
             </form>
         </div>

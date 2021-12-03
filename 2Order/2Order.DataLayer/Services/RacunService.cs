@@ -10,10 +10,12 @@ namespace _2Order.DataLayer.Services
     public class RacunService
     {
         private UnitOfWork.UnitOfWork unitOfWork;
+        private readonly PorudzbinaService porudzbinaService;
 
-        public RacunService(_2OrderContext context)
+        public RacunService(_2OrderContext context, PorudzbinaService porudzbinaService)
         {
             this.unitOfWork = new UnitOfWork.UnitOfWork(context);
+            this.porudzbinaService = porudzbinaService;
         }
 
         public async Task<List<Racun>> VratiSveRacune()
@@ -25,12 +27,6 @@ namespace _2Order.DataLayer.Services
         public async Task<Racun> VratiRacun(int id)
         {
             Racun result = await unitOfWork.RacunRepository.VratiRacun(id);
-            return result;
-        }
-
-        public async Task<List<Racun>> VratiRacunePoTipu(string tip)
-        {
-            List<Racun> result = await unitOfWork.RacunRepository.VratiRacunePoTipu(tip);
             return result;
         }
 
@@ -54,9 +50,26 @@ namespace _2Order.DataLayer.Services
 
         public async Task<Racun> DodajRacun(Racun r)
         {
-            var racun = unitOfWork.RacunRepository.Add(r);
+            Racun racun = new Racun
+            {
+                Iznos = r.Iznos,
+                ListaPorudzbina = new List<Porudzbina>(),
+                StoId = r.StoId,
+                Vreme = r.Vreme
+            };
+            Racun res = unitOfWork.RacunRepository.Add(racun);
             await unitOfWork.Commit();
-            return racun;
+            foreach (Porudzbina p in r.ListaPorudzbina)
+            {
+                Porudzbina porudzbina = new Porudzbina
+                {
+                    KorisnikId = p.KorisnikId,
+                    RacunId = res.Id,
+                    StavkaMenijaId = p.StavkaMenijaId
+                };
+                await this.porudzbinaService.DodajPorudzbinu(porudzbina);
+            }
+            return res;
         }
 
         public async Task ObrisiRacun(int id)

@@ -26,7 +26,7 @@ import NewTable from '../forms/NewTable';
 import { useNotifications } from '../../hooks/useNotifications';
 
 const Tables: React.FC = () => {
-    const { vratiSveStolove, obrisiStolove } = useActions();
+    const { vratiSveStolove, obrisiStolove, azurirajStolove } = useActions();
     const [showMessage] = useNotifications();
     const { stolovi, error, loading } = useTypedSelector(state => state.stolovi);
     const [open, setOpen] = useState<boolean>(false);
@@ -52,7 +52,7 @@ const Tables: React.FC = () => {
         else if (args.item.id === 'update') {
             if(grid.current !== null) {
                 if ((grid.current.getBatchChanges() as IBatchChangesSto).changedRecords.length > 0) {
-                    
+                    azurirajStolove((grid.current.getBatchChanges() as IBatchChangesSto).changedRecords);
                 } else {
                     showMessage('You need first to update some data!', 'warning');
                 }

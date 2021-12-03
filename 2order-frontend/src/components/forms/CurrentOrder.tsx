@@ -7,8 +7,8 @@ import StavkaMenija from '../../model/StavkaMenija';
 import OrderItem from './OrderItem';
 import { useState, useEffect } from 'react';
 import { useCheckDuplicate } from '../../hooks/useCheckDuplicate';
-import * as signalR from '@microsoft/signalr';
 import { useActions } from '../../hooks/useActions';
+import Racun from '../../model/Racun';
 
 interface ChildProps {
   isOpen: boolean;
@@ -24,9 +24,10 @@ interface StavkaIBrojPonavljanja {
 const CurrentOrder: React.FC<ChildProps> = ({ isOpen, closeModal, handleSubmit }) => {
     const classes = useStyles();
     const [ukupnaSuma, setUkupnaSuma] = useState<number>(0);
-    const { obrisiStavkuIzRacuna } = useActions();
+    const { obrisiStavkuIzRacuna, dodajRacun } = useActions();
     const [racun, setRacun] = useState<StavkaIBrojPonavljanja[]>([]);
-    const { stavke, nazivStola, imeKonobara } = useTypedSelector((state)=>state.trenutniRacun);
+    const { stavke, nazivStola, imeKonobara, idStola, porudzbine } = useTypedSelector((state)=>state.trenutniRacun);
+    const { data } = useTypedSelector((state)=>state.auth);
     const { connection } = useTypedSelector((state)=>state.signalR);
     const [checkDuplicate] = useCheckDuplicate();
 
@@ -50,13 +51,28 @@ const CurrentOrder: React.FC<ChildProps> = ({ isOpen, closeModal, handleSubmit }
             });
             setUkupnaSuma(suma);
         });
-        return function cleanup() {
+        return () => {
             connection && connection.off("deleteFromOrder");
-        };
+        }
     }, []);
+
+    const createOrder = () => {
+        if(idStola !== null && idStola !== 0)
+        {
+            const r: Racun = {
+                id: 0,
+                iznos: ukupnaSuma.toString(),
+                stoId: idStola,
+                vreme: new Date(),
+                listaPorudzbina: porudzbine,
+            }
+            dodajRacun(r);
+        }
+    }
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        createOrder();
         closeModal();
     }
 

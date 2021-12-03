@@ -1,4 +1,5 @@
-﻿using _2Order.Domain.Model;
+﻿using _2Order.DataLayer.Services;
+using _2Order.Domain.Model;
 using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
 using System;
@@ -16,27 +17,26 @@ namespace _2Order.WebAPI.Messages
     }
     public class NotificationHub : Hub
     {
-        public async Task PosaljiPoruku(object message)
-        {
-            Message m = JsonConvert.DeserializeObject<Message>(((JsonElement)message).ToString());
-            await Clients.All.SendAsync("sendToUser", m.Naziv, m.Cena);
-        }
-
-        public async Task DodajKorisnikaZaSto(int stoId)
+        public async Task DodajKorisnikaZaSto(int stoId, string ime)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, "Table" + stoId);
+            await Clients.GroupExcept("Table" + stoId, Context.ConnectionId).SendAsync("dodajKorisnika", ime);
         }
 
-        public async Task DodajStavkuUPorudzbinu(StavkaMenija stavka, int stoId)
+        public async Task DodajStavkuUPorudzbinu(StavkaMenija stavka, int stoId, string ime, int idKorisnika)
         {
-            //await Clients.Group("Table" + stoId).SendAsync("sendOrderToUser", stavka);
-            await Clients.All.SendAsync("addToOrder", stavka);
+            await Clients.Group("Table" + stoId).SendAsync("addToOrder", stavka, ime, idKorisnika);
         }
 
         public async Task IzbaciStavkuIzPorudzbine(int stavkaId, int stoId)
         {
-            //await Clients.Group("Table" + stoId).SendAsync("sendOrderToUser", stavka);
-            await Clients.All.SendAsync("deleteFromOrder", stavkaId);
+            await Clients.Group("Table" + stoId).SendAsync("deleteFromOrder", stavkaId);
+        }
+
+        public async Task IzbaciKorisnikaSaStola(int stoId, string ime)
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, "Table" + stoId);
+            await Clients.GroupExcept("Table" + stoId, Context.ConnectionId).SendAsync("izbaciKorisnika", ime);
         }
     }
 }

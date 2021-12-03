@@ -10,23 +10,33 @@ interface ChildProps {
   isOpen: boolean;
   closeModal: () => void;
   stavka: StavkaMenija;
+  price?: number;
+  description?: string;
 }
 
-const AddItem: React.FC<ChildProps> = ({ isOpen, closeModal, stavka }) => {
+const AddItem: React.FC<ChildProps> = ({ isOpen, closeModal, stavka, price, description }) => {
     const classes = useStyles();
     const [showMessage] = useNotifications();
     const { connection } = useTypedSelector(state => state.signalR);
+    const { idStola } = useTypedSelector(state => state.trenutniRacun);
+    const { data } = useTypedSelector(state => state.auth);
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      onAddItemToOrder();
-      closeModal();
-      showMessage(`You added ${stavka.naziv} to Your order!`, 'success');
+        const finalOrder = new StavkaMenija(stavka);
+        finalOrder.cena = price ? price : stavka.cena;
+        finalOrder.naziv = description ? description : stavka.naziv;
+        e.preventDefault();
+        onAddItemToOrder(finalOrder);
+        closeModal();
+      //showMessage(`You added ${stavka.naziv} to Your order!`, 'success');
     }
 
-    //on funkcija u index
-    const onAddItemToOrder = () => {
-        connection && connection.invoke("DodajStavkuUPorudzbinu", stavka, 1);
+    //on funkcija u menu
+    const onAddItemToOrder = (order: StavkaMenija) => {
+        var ime: string = data ? data.korisnik.ime : '';
+        var idKorisnika: number = data ? data.korisnik.id : 0;
+        var stoId = idStola ? idStola : 0;
+        connection && connection.invoke("DodajStavkuUPorudzbinu", order, stoId, ime, idKorisnika);
     }
     
     return (
@@ -43,7 +53,10 @@ const AddItem: React.FC<ChildProps> = ({ isOpen, closeModal, stavka }) => {
                 <div className={classes.paper}>
                     <form onSubmit={onSubmit}>
                         <div className="modal-body">
-                          <p>Do You want to add {stavka.naziv} to Your order?</p>
+                        <p>Do You want to add {description || stavka.naziv} to Your order?</p>
+                        </div>
+                        <div className="modal-body">
+                          <p>Total price: {price || stavka.cena}</p>
                         </div>
                         <button type="submit" className="modal-submit">
                             Submit

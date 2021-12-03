@@ -9,13 +9,26 @@ import Footer from "./../layout/Footer";
 import Header from "./../layout/Header";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { useNotifications } from "../../hooks/useNotifications";
+import StavkaMenija from "../../model/StavkaMenija";
 
 const Menu: React.FC = () => {
-    const { dodajStavkuURacun, obrisiStavkuIzRacuna } = useActions();
+    const { dodajStavkuURacun, dodajPorudzbinuURacun } = useActions();
+    const { connection } = useTypedSelector(state => state.signalR);
     const [show, setShow] = useState<string | null>(null);
+    const [showMessage] = useNotifications();
     
     useEffect(()=>{
         window.scrollTo(0, 0);
+        connection && connection.on("addToOrder", (stavka, ime, idKorisnika) => 
+        {
+            dodajStavkuURacun(stavka);
+            dodajPorudzbinuURacun(stavka, idKorisnika)
+            showMessage(`${ime} has added ${stavka.naziv} to the order`, 'info');
+        });
+        return () => {
+            connection && connection.off("addToOrder");
+        }
     }, []);
 
     const onChange = (e: React.MouseEvent<HTMLButtonElement>, tip: string) => {

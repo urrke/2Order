@@ -51,29 +51,6 @@ export const vratiRacun = (id: number) => {
     }
 };
 
-export const vratiRacunePoTipu = (tip: string) => {
-    return async (dispatch: Dispatch<RacunAction>) => {
-        dispatch({
-            type: ActionType.VRATI_RACUNE_PO_TIPU_LOADING
-        });
-
-        try {
-            const { data } = await axios.get(`${config.server}/Racun/vratiRacunePoTipu/${tip}`);
-
-            dispatch({
-                type: ActionType.VRATI_RACUNE_PO_TIPU_SUCCESS,
-                payload: data
-            });
-
-        } catch (error: any) {
-            dispatch({
-                type: ActionType.VRATI_RACUNE_PO_TIPU_ERROR,
-                payload: error.message
-            });
-        }
-    }
-};
-
 export const vratiRacunePoDatumu = (datum: Date) => {
     return async (dispatch: Dispatch<RacunAction>) => {
         dispatch({

@@ -1,3 +1,6 @@
+import Porudzbina from "../../model/Porudzbina";
+import StavkaMenija from "../../model/StavkaMenija";
+
 export const pushToArray = (data: any, state: any[]): any[] => {
     return [data, ...state];
 };
@@ -53,4 +56,18 @@ export const updateTablePosition = (state: any[], id: number, x: number, y: numb
         table.y = y;
     }
     return swap(table, state);
+}
+
+export const assignOrder = (stavka: StavkaMenija, korisnikId: number, state: Porudzbina[]): Porudzbina[] => {
+    const p: Porudzbina = {
+        korisnikId,
+        stavkaMenijaId: stavka.id,
+        stavkaMenija: stavka
+    }
+    return pushToArray(p,state);
+}
+
+export const deleteOrder = (stavkaId: number, korisnikId: number, state: Porudzbina[]): Porudzbina[] => {
+    var result = state.filter((porudzbina: Porudzbina) => (porudzbina.korisnikId !== korisnikId && porudzbina.stavkaMenijaId !== stavkaId));
+    return result;
 }

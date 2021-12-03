@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using _2Order.DataLayer.Services;
 using _2Order.Domain.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -20,6 +21,7 @@ namespace _2Order.WebAPI.Controllers
             this.porudzbinaService = porudzbinaService;
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiSvePorudzbine")]
         public async Task<IActionResult> VratiSvePorudzbine()
@@ -34,6 +36,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await porudzbinaService.VratiPorudzbinu(id));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpGet]
         [Route("vratiPorudzbineKorisnika/{id}")]
         public async Task<IActionResult> VratiPorudzbineKorisnika(int id)
@@ -41,13 +44,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await porudzbinaService.VratiPorudzbineKorisnika(id));
         }
 
-        [HttpGet]
-        [Route("vratiPorudzbineSaIstomSifrom/{sifra}")]
-        public async Task<IActionResult> VratiPorudzbineSaIstomSifrom(string sifra)
-        {
-            return new JsonResult(await porudzbinaService.VratiPorudzbineSaIstomSifrom(sifra));
-        }
-
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPost]
         [Route("dodajPorudzbinu")]
         public async Task<IActionResult> DodajPorudzbinu([FromBody] Porudzbina p)
@@ -55,6 +52,7 @@ namespace _2Order.WebAPI.Controllers
             return new JsonResult(await porudzbinaService.DodajPorudzbinu(p));
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpDelete]
         [Route("obrisiPorudzbinu/{id}")]
         public async Task<IActionResult> ObrisiPorudzbinu(int id)
@@ -63,6 +61,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPost]
         [Route("obrisiPorudzbine")]
         public async Task<IActionResult> ObrisiPorudzbine([FromBody] List<int> ids)
@@ -71,6 +70,7 @@ namespace _2Order.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Korisnik,Radnik")]
         [HttpPut]
         [Route("azurirajPorudzbinu")]
         public async Task<IActionResult> AzurirajPorudzbinu([FromBody] Porudzbina p)

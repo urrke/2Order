@@ -89,6 +89,8 @@ namespace _2Order.DataLayer.Services
             Korisnik korisnik = unitOfWork.KorisnikRepository.Get(k.Id);
             if (korisnik != null)
             {
+                if (k.Sifra == null)
+                    k.Sifra = korisnik.Sifra;
                 unitOfWork.KorisnikRepository.Update(k);
                 await unitOfWork.Commit();
             }

@@ -4,7 +4,7 @@ interface Korisnik {
     tip: string;
     prezime: string;
     email: string;
-    sifra: string;
+    sifra?: string;
     brojTelefona: string;
     grad: string;
     adresa: string;

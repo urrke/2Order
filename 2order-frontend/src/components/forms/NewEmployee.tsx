@@ -64,6 +64,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                 <div className="login-info">
                                     <input 
                                         placeholder="First name" 
+                                        value={firstName}
                                         onChange={(e) => setFirstName(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
@@ -71,6 +72,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                     />
                                     <input 
                                         placeholder="Last name" 
+                                        value={lastName}
                                         onChange={(e) => setLastName(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
@@ -78,6 +80,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                     />
                                     <input 
                                         placeholder="Email" 
+                                        value={email}
                                         onChange={(e) => setEmail(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
@@ -86,6 +89,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                     />
                                     <input 
                                         placeholder="Password" 
+                                        value={password}
                                         onChange={(e) => setPassword(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="password" 
@@ -93,6 +97,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                     />
                                     <input 
                                         placeholder="City" 
+                                        value={city}
                                         onChange={(e) => setCity(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
@@ -100,6 +105,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                     />
                                     <input 
                                         placeholder="Address" 
+                                        value={address}
                                         onChange={(e) => setAddress(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
@@ -107,6 +113,7 @@ const NewEmployee: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) =
                                     />
                                     <input 
                                         placeholder="Phone number" 
+                                        value={phone}
                                         onChange={(e) => setPhone(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 

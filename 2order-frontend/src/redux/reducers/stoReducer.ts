@@ -1,7 +1,7 @@
 import Sto from '../../model/Sto';
 import { ActionType } from '../action-types/index'
 import { StoAction } from '../actions/stoActions'
-import { filterData, pushToArray, updateOneData, filterOneData, updateTablePosition, swap } from './functionsForChangeState'
+import { filterData, pushToArray, updateData, filterOneData, updateTablePosition, swap } from './functionsForChangeState'
 
 interface StoState {
     loading: boolean;
@@ -68,7 +68,7 @@ const stoReducer = (state: StoState = initialState, action: StoAction): StoState
         case ActionType.AZURIRAJ_STOLOVE_LOADING:
             return { ...state, loading: true, error: null }
         case ActionType.AZURIRAJ_STOLOVE_SUCCESS:
-            return { loading: false, error: null, stolovi: action.payload }
+            return { loading: false, error: null, stolovi: updateData(action.payload, state.stolovi) }
         case ActionType.AZURIRAJ_STOLOVE_ERROR:
             return { ...state, loading: false, error: action.payload }
         case ActionType.ZAUZMI_ILI_OSLOBODI_STO_LOADING:
@@ -79,6 +79,8 @@ const stoReducer = (state: StoState = initialState, action: StoAction): StoState
             return { ...state, loading: false, error: action.payload }
         case ActionType.AZURIRAJ_POZICIJU_STOLA:
             return { loading: false, error: null, stolovi: updateTablePosition(state.stolovi, action.payload.id, action.payload.x, action.payload.y) }
+        case ActionType.POSTAVI_TRENUTNU_PORUDZBINU:
+            return { loading: false, error: null, stolovi: state.stolovi }
         default: 
             return state;
     }

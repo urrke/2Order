@@ -6,7 +6,7 @@ interface Recenzija {
     komentar: string;
     vreme: Date;
     racunId: number;
-    racun: Racun;
+    racun?: Racun;
 }
 
 export default Recenzija;

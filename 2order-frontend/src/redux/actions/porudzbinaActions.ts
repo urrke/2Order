@@ -44,20 +44,6 @@ interface VratiPorudzbineKorisnikaError {
     payload: string;
 }
 
-interface VratiPorudzbineSaIstomSifromLoading {
-    type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_LOADING;
-}
-
-interface VratiPorudzbineSaIstomSifromSuccess {
-    type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_SUCCESS;
-    payload: Porudzbina[];
-}
-
-interface VratiPorudzbineSaIstomSifromError {
-    type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_ERROR;
-    payload: string;
-}
-
 interface DodajPorudzbinuLoading {
     type: ActionType.DODAJ_PORUDZBINU_LOADING;
 }
@@ -117,7 +103,6 @@ interface AzurirajPorudzbinuError {
 export type PorudzbinaAction = VratiSvePorudzbineLoading | VratiSvePorudzbineSuccess | VratiSvePorudzbineError
 | VratiPorudzbinuLoading | VratiPorudzbinuSuccess | VratiPorudzbinuError
 | VratiPorudzbineKorisnikaLoading | VratiPorudzbineKorisnikaSuccess | VratiPorudzbineKorisnikaError
-| VratiPorudzbineSaIstomSifromLoading | VratiPorudzbineSaIstomSifromSuccess | VratiPorudzbineSaIstomSifromError
 | DodajPorudzbinuLoading | DodajPorudzbinuSuccess | DodajPorudzbinuError
 | ObrisiPorudzbinuLoading | ObrisiPorudzbinuSuccess | ObrisiPorudzbinuError
 | ObrisiPorudzbineLoading | ObrisiPorudzbineSuccess | ObrisiPorudzbineError

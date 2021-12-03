@@ -68,7 +68,7 @@ const korisnikReducer = (state: KorisnikState = initialState, action: KorisnikAc
         case ActionType.AZURIRAJ_KORISNIKE_LOADING:
             return { ...state, loading: true, error: null }
         case ActionType.AZURIRAJ_KORISNIKE_SUCCESS:
-            return { loading: false, error: null, korisnici: state.korisnici }
+            return { loading: false, error: null, korisnici: updateData(action.payload, state.korisnici) }
         case ActionType.AZURIRAJ_KORISNIKE_ERROR:
             return { ...state, loading: false, error: action.payload }
         default: 

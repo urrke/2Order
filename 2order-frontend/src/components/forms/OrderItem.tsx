@@ -12,44 +12,20 @@ interface ChildProps {
 }
 
 const OrderItem: React.FC<ChildProps> = ({ stavka, broj, setUkupnaSuma, handleDelete }) => {
-    const { obrisiStavkuIzRacuna } = useActions();
     const [ showMessage ] = useNotifications();
-    const { stavke } = useTypedSelector((state)=>state.trenutniRacun);
     const { connection } = useTypedSelector((state)=>state.signalR);
-
-    useEffect(() => {
-        /*connection && connection.on("deleteFromOrder", stavkaId => 
-        {
-            obrisiStavkuIzRacuna(stavkaId);
-            handleDelete();
-            var suma = 0;
-            trenutniRacun.map((stavka: StavkaMenija) => {
-                suma = suma + stavka.cena;
-            });
-            setUkupnaSuma(suma);
-            
-        });
-        return function cleanup() {
-            connection && connection.off("deleteFromOrder");
-        };*/
-    }, [])
+    const { idStola } = useTypedSelector(state => state.trenutniRacun);
 
     const onDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         onDeleteItemFromOrder();
-        //obrisiStavkuIzRacuna(stavka.id);
-        /*handleDelete();
-        var suma = 0;
-        trenutniRacun.map((stavka: StavkaMenija) => {
-            suma = suma + stavka.cena;
-        });
-        setUkupnaSuma(suma);*/
         showMessage(`You deleted ${stavka.naziv} from Your order!`, 'error');
     }
 
     //on funkcija u currentOrder
     const onDeleteItemFromOrder = () => {
-        connection && connection.invoke("IzbaciStavkuIzPorudzbine", stavka.id, 1);
+        var stoId = idStola ? idStola : 0;
+        connection && connection.invoke("IzbaciStavkuIzPorudzbine", stavka.id, stoId);
     }
 
     return (

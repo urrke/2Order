@@ -9,7 +9,8 @@ import {
     Filter,
     CommandModel,
     CommandColumn,
-    Resize
+    Resize,
+    CommandClickEventArgs
 } from '@syncfusion/ej2-react-grids';
 import {
     editSettings,
@@ -28,7 +29,8 @@ const Reviews: React.FC = () => {
     const { vratiSveRecenzije, obrisiRecenzije } = useActions();
     const { recenzije, loading, error } = useTypedSelector(state => state.recenzije);
     const [openDetails, setOpenDetails] = useState<boolean>(false);
-    const commands: CommandModel[] = [{ buttonOption: { content: 'Details', click: () => {onClick();}}}];
+    const [recenzijaId, setRecenzijaId] = useState<number>(0);
+    const commands: CommandModel[] = [{ buttonOption: { content: 'Details' }}];
     const grid = useRef<GridComponent>(null);
 
     useEffect(() => {
@@ -47,18 +49,18 @@ const Reviews: React.FC = () => {
         } 
     }
 
-    const onClick = () => {
-        setOpenDetails(true);
-        console.log('uros');
-    }
-
     const closeModal = () => {
         setOpenDetails(false);
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        closeModal();
+    const onCommandClick = (arg: CommandClickEventArgs | undefined) => {
+        if(arg === undefined)
+            return;
+        else {
+            var recenzija = arg.rowData as Recenzija;
+            setRecenzijaId(recenzija.id);
+            setOpenDetails(true);
+        }
     }
 
     return (
@@ -78,6 +80,7 @@ const Reviews: React.FC = () => {
                         allowPaging={true}
                         pageSettings={pageSettings}
                         width={1200}
+                        commandClick={onCommandClick}
                         toolbarClick={clickHandler}
                         ref={grid}
                         allowResizing={true}
@@ -111,7 +114,7 @@ const Reviews: React.FC = () => {
                 </div>
             </div>}
             </>}
-            {openDetails && <ReviewDetails isOpen={openDetails} closeModal={closeModal} handleSubmit={handleSubmit}/>}
+            {openDetails && <ReviewDetails isOpen={openDetails} closeModal={closeModal} recenzijaId={recenzijaId}/>}
         </div>
     )
 }

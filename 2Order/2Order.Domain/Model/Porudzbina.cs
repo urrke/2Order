@@ -15,6 +15,5 @@ namespace _2Order.Domain.Model
         public int RacunId { get; set; }
         [JsonIgnore]
         public Racun Racun { get; set; }
-        public string Sifra { get; set; }
     }
 }

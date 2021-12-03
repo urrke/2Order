@@ -1,3 +1,4 @@
+import Racun from '../../model/Racun';
 import Sto from '../../model/Sto';
 import { ActionType } from '../action-types'
 
@@ -152,6 +153,14 @@ interface AzurirajPozicijuStola {
     payload: Position;
 }
 
+interface PostaviTrenutnuPorudzbinu {
+    type: ActionType.POSTAVI_TRENUTNU_PORUDZBINU;
+    payload: {
+        idStola: number,
+        racun: Racun
+    }
+}
+
 export type StoAction = VratiSveStoloveLoading | VratiSveStoloveSuccess | VratiSveStoloveError
 | VratiStoLoading | VratiStoSuccess | VratiStoError
 | VratiStoloveKonobaraLoading | VratiStoloveKonobaraSuccess | VratiStoloveKonobaraError
@@ -162,4 +171,4 @@ export type StoAction = VratiSveStoloveLoading | VratiSveStoloveSuccess | VratiS
 | AzurirajStoLoading | AzurirajStoSuccess | AzurirajStoError
 | AzurirajStoloveLoading | AzurirajStoloveSuccess | AzurirajStoloveError
 | ZauzmiIliOslobodiStoLoading | ZauzmiIliOslobodiStoSuccess | ZauzmiIliOslobodiStoError
-| AzurirajPozicijuStola;
+| AzurirajPozicijuStola | PostaviTrenutnuPorudzbinu;

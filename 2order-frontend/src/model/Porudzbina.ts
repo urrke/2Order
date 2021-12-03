@@ -3,14 +3,13 @@ import Racun from "./Racun";
 import StavkaMenija from "./StavkaMenija";
 
 interface Porudzbina {
-    id: number;
+    id?: number;
     korisnikId: number;
-    korisnik: Korisnik;
+    korisnik?: Korisnik;
     stavkaMenijaId: number;
-    stavkaMenija: StavkaMenija;
-    racunId: number;
-    racun: Racun;
-    sifra: string;
+    stavkaMenija?: StavkaMenija;
+    racunId?: number;
+    racun?: Racun;
 }
 
 export default Porudzbina;

@@ -49,7 +49,7 @@ const Tables: React.FC = () => {
                     <Navigator from={'Home'} to={'Tables'} path={'/home'}/>
                     {loading ? (<div className="loader margin-top"></div>) :
                         (<div className="tables">
-                            { (data !== null && data.korisnik.tip == "Menadzer") &&
+                            { (data !== null && data.korisnik.tip == "Radnik") &&
                             <div className="tables-buttons" id="tables-buttons">
                                 <button className="tables-enable" onClick={onChangeEnableDragging}>
                                     {enableDragging === false ? 'Enable' : 'Disable'}

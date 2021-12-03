@@ -68,7 +68,7 @@ const stavkaMenijaReducer = (state: StavkaMenijaState = initialState, action: St
         case ActionType.AZURIRAJ_STAVKE_MENIJA_LOADING:
             return { ...state, loading: true, error: null }
         case ActionType.AZURIRAJ_STAVKE_MENIJA_SUCCESS:
-            return { loading: false, error: null, stavkeMenija: state.stavkeMenija }
+            return { loading: false, error: null, stavkeMenija: updateData(action.payload, state.stavkeMenija) }
         case ActionType.AZURIRAJ_STAVKE_MENIJA_ERROR:
             return { ...state, loading: false, error: action.payload }
         default: 

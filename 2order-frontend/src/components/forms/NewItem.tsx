@@ -56,6 +56,7 @@ const NewItem: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) => {
                                 <div className="login-info">
                                     <input 
                                         placeholder="Name" 
+                                        value={name}
                                         onChange={(e) => setName(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
@@ -67,12 +68,14 @@ const NewItem: React.FC<ChildProps> = ({isOpen, closeModal, handleSubmit}) => {
                                     </select>
                                     <input 
                                         placeholder="Group" 
+                                        value={group}
                                         onChange={(e) => setGroup(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 
                                     />
                                     <input 
                                         placeholder="Price" 
+                                        value={price}
                                         onChange={(e) => setPrice(e.currentTarget.value)} 
                                         className="login-input" 
                                         type="text" 

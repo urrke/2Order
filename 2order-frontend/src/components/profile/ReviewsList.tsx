@@ -8,7 +8,8 @@ import {
     Page,
     Inject,
     CommandModel,
-    Resize
+    Resize,
+    CommandClickEventArgs
 } from '@syncfusion/ej2-react-grids';
 import {
     editSettings,
@@ -24,16 +25,19 @@ import ReviewDetails from '../forms/ReviewDetails';
 import Recenzija from '../../model/Recenzija';
 
 const ReviewsList: React.FC = () => {
-    const { vratiRecenzijeKorisnika, obrisiRecenzije } = useActions();
+    const { obrisiRecenzije, vratiRecenzijeKorisnika } = useActions();
     const { recenzije, loading, error } = useTypedSelector(state => state.recenzije);
-    const { data } = useTypedSelector(state => state.auth);
     const [openDetails, setOpenDetails] = useState<boolean>(false);
-    const commands: CommandModel[] = [{ buttonOption: { content: 'Details', click: () => {onClick();}}}];
+    const [recenzijaId, setRecenzijaId] = useState<number>(0);
+    const commands: CommandModel[] = [{ buttonOption: { content: 'Details' }}];
     const grid = useRef<GridComponent>(null);
+    const { data } = useTypedSelector(state => state.auth);
 
     useEffect(() => {
-        
-    }, []);
+        if(data) {
+            vratiRecenzijeKorisnika(data.korisnik.id);
+        }
+    }, [])
 
     const clickHandler = (args: any) => {
         if (args.item.id === 'delete') {
@@ -47,18 +51,18 @@ const ReviewsList: React.FC = () => {
         } 
     }
 
-    const onClick = () => {
-        setOpenDetails(true);
-        console.log('uros');
-    }
-
     const closeModal = () => {
         setOpenDetails(false);
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        closeModal();
+    const onCommandClick = (arg: CommandClickEventArgs | undefined) => {
+        if(arg === undefined)
+            return;
+        else {
+            var recenzija = arg.rowData as Recenzija;
+            setRecenzijaId(recenzija.id);
+            setOpenDetails(true);
+        }
     }
 
     return (
@@ -76,6 +80,7 @@ const ReviewsList: React.FC = () => {
                         editSettings={editSettings}
                         allowPaging={true}
                         pageSettings={pageSettings}
+                        commandClick={onCommandClick}
                         width={1200}
                         allowResizing={true}
                         toolbarClick={clickHandler}
@@ -110,7 +115,7 @@ const ReviewsList: React.FC = () => {
                 </div>
             </div>}
             </>}
-            {openDetails && <ReviewDetails isOpen={openDetails} closeModal={closeModal} handleSubmit={handleSubmit}/>}
+            {openDetails && <ReviewDetails isOpen={openDetails} closeModal={closeModal} recenzijaId={recenzijaId}/>}
         </div>
     )
 }

@@ -9,6 +9,7 @@ const Login: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const { prijava } = useActions();
+    const { error } = useTypedSelector(state => state.auth);
 
     const closeModal = () => {
         setOpen(false);
@@ -40,6 +41,7 @@ const Login: React.FC = () => {
                         className="login-input" 
                         type="password" 
                     />
+                    {error && <p style={{color: "red"}}>Email or password are incorrect!</p>}
                 </div>
                 <div className="login-options">
                     <button className="login-button" onClick={onLogin}>Log In</button>

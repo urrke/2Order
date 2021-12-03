@@ -92,17 +92,36 @@ namespace _2Order.DataLayer.Services
         {
             if(stolovi.Count > 0)
             {
-                unitOfWork.StoRepository.UpdateRange(stolovi);
+                List<Sto> result = new List<Sto>();
+                foreach(Sto s in stolovi)
+                {
+                    Sto noviSto = new Sto
+                    {
+                        Id = s.Id,
+                        BrojMesta = s.BrojMesta,
+                        Oznaka = s.Oznaka,
+                        X = s.X,
+                        Y = s.Y,
+                        KonobarId = s.KonobarId,
+                        Slobodan = s.Slobodan
+                    };
+                    result.Add(noviSto);
+                }
+                unitOfWork.StoRepository.UpdateRange(result);
                 await unitOfWork.Commit();
             }
         }
 
-        public async Task<Sto> ZauzmiIliOslobodiSto(int idStola)
+        public async Task<Sto> ZauzmiIliOslobodiSto(string sifra, int idStola)
         {
             Sto s = unitOfWork.StoRepository.FindWithIncludes(x => x.Id == idStola, x => x.Konobar).FirstOrDefault();
             if(s != null)
             {
                 s.Slobodan = !s.Slobodan;
+                if(s.Slobodan == true)
+                    s.Sifra = null;
+                else
+                    s.Sifra = sifra;
                 var sto = unitOfWork.StoRepository.Update(s);
                 await unitOfWork.Commit();
                 sto.Konobar = s.Konobar;

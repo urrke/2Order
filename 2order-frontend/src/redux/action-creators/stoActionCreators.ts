@@ -4,6 +4,7 @@ import axios from 'axios'
 import config from '../../app.config.json'
 import { StoAction } from '../actions/stoActions'
 import Sto from '../../model/Sto'
+import Racun from '../../model/Racun'
 
 export const vratiSveStolove = () => {
     return async (dispatch: Dispatch<StoAction>) => {
@@ -220,27 +221,16 @@ export const azurirajStolove = (stolovi: Sto[]) => {
     }
 }
 
-export const azurirajPozicijuStola = (id: number, x: number, y: number) => {
-    return async (dispatch: Dispatch<StoAction>) => {
-        dispatch({
-            type: ActionType.AZURIRAJ_POZICIJU_STOLA,
-            payload: {
-                id: id,
-                x: x,
-                y: y
-            }
-        });
-    };
-}
-
-export const zauzmiIliOslobodiSto = (idStola: number) => {
+export const zauzmiIliOslobodiSto = (idStola: number, password: string) => {
     return async (dispatch: Dispatch<StoAction>) => {
         dispatch({
             type: ActionType.ZAUZMI_ILI_OSLOBODI_STO_LOADING
         });
 
         try {
-            const { data } = await axios.put(`${config.server}/Sto/zauzmiIliOslobodiSto/${idStola}`);
+            const { data } = await axios.put(`${config.server}/Sto/zauzmiIliOslobodiSto/${idStola}`, JSON.stringify(password), {
+                headers: { "Content-Type": "application/json" }
+            });
 
             dispatch({
                 type: ActionType.ZAUZMI_ILI_OSLOBODI_STO_SUCCESS,
@@ -254,4 +244,29 @@ export const zauzmiIliOslobodiSto = (idStola: number) => {
             });
         }
     }
+}
+
+export const azurirajPozicijuStola = (id: number, x: number, y: number) => {
+    return async (dispatch: Dispatch<StoAction>) => {
+        dispatch({
+            type: ActionType.AZURIRAJ_POZICIJU_STOLA,
+            payload: {
+                id: id,
+                x: x,
+                y: y
+            }
+        });
+    };
+}
+
+export const postaviTrenutnuPorudzbinu = (idStola: number, racun: Racun) => {
+    return async (dispatch: Dispatch<StoAction>) => {
+        dispatch({
+            type: ActionType.POSTAVI_TRENUTNU_PORUDZBINU,
+            payload: {
+                idStola,
+                racun
+            }
+        });
+    }; 
 }

@@ -29,12 +29,6 @@ const racunReducer = (state: RacunState = initialState, action: RacunAction): Ra
             return { loading: false, error: null, racuni: state.racuni }
         case ActionType.VRATI_RACUN_ERROR:
             return { ...state, loading: false, error: action.payload }
-        case ActionType.VRATI_RACUNE_PO_TIPU_LOADING:
-            return { ...state, loading: true, error: null }
-        case ActionType.VRATI_RACUNE_PO_TIPU_SUCCESS:
-            return { loading: false, error: null, racuni: state.racuni }
-        case ActionType.VRATI_RACUNE_PO_TIPU_ERROR:
-            return { ...state, loading: false, error: action.payload }
         case ActionType.VRATI_RACUNE_PO_DATUMU_LOADING:
             return { ...state, loading: true, error: null }
         case ActionType.VRATI_RACUNE_PO_DATUMU_SUCCESS:

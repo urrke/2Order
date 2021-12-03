@@ -80,3 +80,27 @@ export const postaviTrenutniSto = (id: number | null, naziv: string | null, imeK
         });
     };
 }
+
+export const dodajPorudzbinuURacun = (stavka: StavkaMenija, korisnikId: number) => {
+    return async (dispatch: Dispatch<TrenutniRacunAction>) => {
+        dispatch({
+            type: ActionType.DODAJ_PORUDZBINU_U_TRENUTNI_RACUN,
+            payload: {
+                stavka,
+                korisnikId
+            }
+        });
+    }
+};
+
+export const obrisiPorudzbinuIzRacuna = (idKorisnika: number, idStavke: number) => {
+    return async (dispatch: Dispatch<TrenutniRacunAction>) => {
+        dispatch({
+            type: ActionType.OBRISI_PORUDZBINU_IZ_TRENUTNOG_RACUNA,
+            payload: {
+                idKorisnika,
+                idStavke
+            }
+        });
+    }
+};

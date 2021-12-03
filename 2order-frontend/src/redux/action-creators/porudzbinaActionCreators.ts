@@ -74,29 +74,6 @@ export const vratiPorudzbineKorisnika = (id: number) => {
     }
 };
 
-export const vratiPorudzbineSaIstomSifrom = (password: string) => {
-    return async (dispatch: Dispatch<PorudzbinaAction>) => {
-        dispatch({
-            type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_LOADING
-        });
-
-        try {
-            const { data } = await axios.get(`${config.server}/Porudzbina/vratiPorudzbineSaIstomSifrom/${password}`);
-
-            dispatch({
-                type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_SUCCESS,
-                payload: data
-            });
-
-        } catch (error: any) {
-            dispatch({
-                type: ActionType.VRATI_PORUDZBINE_SA_ISTOM_SIFROM_ERROR,
-                payload: error.message
-            });
-        }
-    }
-};
-
 export const dodajPorudzbinu = (porudzbina: Porudzbina) => {
     return async (dispatch: Dispatch<PorudzbinaAction>) => {
         dispatch({

@@ -20,6 +20,22 @@ interface ObrisiStavkuIzRacuna {
     payload: number;
 }
 
+interface DodajPorudzbinuURacun {
+    type: ActionType.DODAJ_PORUDZBINU_U_TRENUTNI_RACUN;
+    payload: { 
+        stavka: StavkaMenija 
+        korisnikId: number;
+    };
+}
+
+interface ObrisiPorudzbinuIzRacuna {
+    type: ActionType.OBRISI_PORUDZBINU_IZ_TRENUTNOG_RACUNA;
+    payload: { 
+        idKorisnika: number,
+        idStavke: number
+     };
+}
+
 interface DodajIznosURacun {
     type: ActionType.DODAJ_IZNOS_U_TRENUTNI_RACUN;
     payload: number;
@@ -48,4 +64,4 @@ interface PostaviTrenutniSto {
 }
 
 export type TrenutniRacunAction = VratiStavkeIzRacuna | DodajStavkuURacun | ObrisiStavkuIzRacuna | DodajIznosURacun 
-| VratiIznosIzRacuna | DodajRacun | VratiRacun | PostaviTrenutniSto;
+| VratiIznosIzRacuna | DodajRacun | VratiRacun | PostaviTrenutniSto | DodajPorudzbinuURacun | ObrisiPorudzbinuIzRacuna;

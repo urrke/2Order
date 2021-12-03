@@ -25,7 +25,8 @@ namespace _2Order.DataLayer.Repository
         public async Task<Recenzija> VratiRecenziju(int id)
         {
             return await context.Set<Recenzija>().Where(x => x.Id == id)
-                .Include(x => x.Racun).ThenInclude(x => x.ListaPorudzbina).ThenInclude(x => x.Korisnik)
+                .Include(x => x.Racun).ThenInclude(r => r.ListaPorudzbina).ThenInclude(p => p.Korisnik)
+                .Include(x => x.Racun).ThenInclude(r => r.Sto).ThenInclude(s => s.Konobar)
                 .FirstOrDefaultAsync();
         }
 

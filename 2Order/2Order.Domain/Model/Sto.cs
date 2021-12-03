@@ -10,6 +10,7 @@ namespace _2Order.Domain.Model
         public int BrojMesta { get; set; }
         public bool Slobodan { get; set; }
         public string Oznaka { get; set; }
+        public string Sifra { get; set; }
         public float X { get; set; }
         public float Y { get; set; }
         public int KonobarId { get; set; }

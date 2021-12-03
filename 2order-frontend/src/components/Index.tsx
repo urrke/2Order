@@ -1,46 +1,27 @@
 import { faPhoneVolume, faMotorcycle, faShoppingBasket, faLaptop } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
-import { useActions } from '../hooks/useActions';
-import { useCheckDuplicate } from '../hooks/useCheckDuplicate';
+import { useNotifications } from '../hooks/useNotifications';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import StavkaMenija from '../model/StavkaMenija';
 import Footer from './layout/Footer';
 import Header from './layout/Header';
 
-interface StavkaIBrojPonavljanja {
-    stavka: StavkaMenija;
-    broj: number;
-}
-
 const Index: React.FC = () => {
-    const { dodajStavkuURacun, obrisiStavkuIzRacuna, dodajIznosURacun, dodajTrenutniRacun } = useActions();
     const { connection } = useTypedSelector(state => state.signalR);
-    const { stavke } = useTypedSelector((state)=>state.trenutniRacun);
-    const [checkDuplicate] = useCheckDuplicate();
-    
+    const [showMessage] = useNotifications();
+
     useEffect(()=>{
         window.scrollTo(0, 0);
-        connection && connection.on("addToOrder", stavka => 
+        connection && connection.on("dodajKorisnika", ime => 
         {
-            dodajStavkuURacun(stavka);
+            showMessage(`${ime} joined your table!`, "info");
         });
-        /*connection && connection.on("deleteFromOrder", stavkaId => 
+        connection && connection.on("izbaciKorisnika", ime => 
         {
-            obrisiStavkuIzRacuna(stavkaId);
-            handleDelete();
-            var suma = 0;
-            stavke.map((stavka: StavkaMenija) => {
-                suma = suma + stavka.cena;
-            });
-            dodajIznosURacun(suma);
-        });*/
+            showMessage(`${ime} left your table!`, "info");
+        });
     }, []);
-
-    /*const handleDelete = () => {
-        dodajTrenutniRacun(checkDuplicate(stavke));
-    }*/
 
     return (
         <div>

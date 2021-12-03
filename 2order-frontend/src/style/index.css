@@ -1,5 +1,9 @@
 /* APP */
 
+input[type='checkbox'] {
+    -webkit-appearance: checkbox;
+}
+
 .loader {
     margin: auto;
     border: 16px solid #f3f3f3;
@@ -497,6 +501,22 @@
     margin-right: 10px;
 }
 
+.change-pass-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.change-pass-label {
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.settings-input {
+    -webkit-appearance: auto;
+}
+
 .list-container {
     margin-top: 20px;
 }
@@ -596,8 +616,6 @@
     border-radius: 3px;
     margin-bottom: 50px;
     background-color: #f44336;
-    /*width: 100px;
-    height: 100px;*/
 }
 
 .table-box {
@@ -606,8 +624,6 @@
     border-radius: 3px;
     margin-bottom: 50px;
     background-color: #b67441;
-    /*width: 100px;
-    height: 100px;*/
 }
 
 .table-box-moving {
@@ -617,8 +633,6 @@
     border-radius: 3px;
     margin-bottom: 50px;
     background-color: #b67441;
-    /*width: 100px;
-    height: 100px;*/
 }
 
 /*--- TABLE ---*/
@@ -642,3 +656,38 @@
 }
 
 /*--- NEW FORMS ---*/
+
+/* DETAIL FORMS */
+
+.details-buttons {
+    text-align: center;
+}
+
+.detail-button {
+    width: 120px;
+    height: 40px;
+    background-color: #0abf53;
+    color: white;
+    border: 1px solid #0abf53;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    align-self: baseline;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.join-input {
+    -webkit-appearance: auto;
+    width: 300px;
+}
+
+/*--- DETAIL FORMS ---*/

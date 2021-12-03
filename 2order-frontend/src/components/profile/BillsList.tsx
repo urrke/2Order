@@ -9,7 +9,8 @@ import {
     Filter,
     CommandColumn,
     CommandModel,
-    Resize
+    Resize,
+    CommandClickEventArgs
 } from '@syncfusion/ej2-react-grids';
 import {
     pageSettings,
@@ -22,14 +23,23 @@ import { useEffect, useRef, useState } from 'react';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import BillDetails from '../forms/BillDetails';
 import Racun from '../../model/Racun';
+import NewReview from '../forms/NewReview';
 
 const BillsList: React.FC = () => {
-    const { obrisiRacune } = useActions();
+    const { obrisiRacune, vratiRacuneKorisnika } = useActions();
     const { racuni, loading, error } = useTypedSelector(state => state.racuni);
     const [openDetails, setOpenDetails] = useState<boolean>(false);
-    let open: boolean = false;
-    const commands: CommandModel[] = [{ buttonOption: { content: 'Details', click: () => {onClick();}}}];
+    const [openReview, setOpenReview] = useState<boolean>(false);
+    const [racunId, setRacunId] = useState<number>(0);
+    const commands: CommandModel[] = [{ buttonOption: { content: 'Details' }}, { buttonOption: { content: 'Review' }}];
     const grid = useRef<GridComponent>(null);
+    const { data } = useTypedSelector(state => state.auth);
+
+    useEffect(() => {
+        if(data) {
+            vratiRacuneKorisnika(data.korisnik.id);
+        }
+    }, [])
 
     const clickHandler = (args: any) => {
         if (args.item.id === 'delete') {
@@ -43,18 +53,26 @@ const BillsList: React.FC = () => {
         } 
     }
 
-    const onClick = () => {
-        open = true;
-        console.log('uros');
+    const onCommandClick = (arg: CommandClickEventArgs | undefined) => {
+        if(arg === undefined)
+            return;
+        else if (arg.commandColumn?.buttonOption?.content === 'Details'){
+            var racun = arg.rowData as Racun;
+            setRacunId(racun.id);
+            setOpenDetails(true);
+        }
+        else if (arg.commandColumn?.buttonOption?.content === 'Review') {
+            var racun = arg.rowData as Racun;
+            setRacunId(racun.id);
+            setOpenReview(true);
+        }
     }
 
     const closeModal = () => {
-        open = false;
-    }
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        closeModal();
+        if(openDetails)
+            setOpenDetails(false);
+        else 
+            setOpenReview(false);
     }
 
     return (
@@ -74,15 +92,12 @@ const BillsList: React.FC = () => {
                         allowPaging={true} 
                         pageSettings={pageSettings}
                         allowResizing={true}
+                        commandClick={onCommandClick}
                         toolbarClick={clickHandler}
                         ref={grid}
                     >
                         <ColumnsDirective>
                             <ColumnDirective type="checkbox" width="50" />
-                            <ColumnDirective
-                                field="tip"
-                                headerText="Type"
-                            ></ColumnDirective>
                             <ColumnDirective
                                 field="iznos"
                                 headerText="Total"
@@ -105,7 +120,8 @@ const BillsList: React.FC = () => {
                         <Inject services={[Page, Toolbar, Edit, Filter, CommandColumn, Resize]} />
                     </GridComponent>
                 </div>
-                {open && <BillDetails isOpen={open} closeModal={closeModal} handleSubmit={handleSubmit}/>}
+                {openDetails && <BillDetails isOpen={openDetails} closeModal={closeModal} racunId={racunId}/>}
+                {openReview && <NewReview isOpen={openReview} closeModal={closeModal} racunId={racunId}/>}
             </div>}
             </>}
         </div>

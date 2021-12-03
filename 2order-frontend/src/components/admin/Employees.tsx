@@ -26,7 +26,7 @@ import NewEmployee from '../forms/NewEmployee';
 import { useNotifications } from '../../hooks/useNotifications';
 
 const Employees: React.FC = () => {
-    const { vratiKorisnikePoTipu, obrisiKorisnike } = useActions();
+    const { vratiKorisnikePoTipu, obrisiKorisnike, azurirajKorisnike } = useActions();
     const [showMessage] = useNotifications();
     const { korisnici, error, loading } = useTypedSelector(state => state.korisnici);
     const [open, setOpen] = useState<boolean>(false);
@@ -52,7 +52,7 @@ const Employees: React.FC = () => {
         else if (args.item.id === 'update') {
             if(grid.current !== null) {
                 if ((grid.current.getBatchChanges() as IBatchChangesKorisnik).changedRecords.length > 0) {
-
+                    azurirajKorisnike((grid.current.getBatchChanges() as IBatchChangesKorisnik).changedRecords);
                 } else {
                     showMessage('You need first to update some data!', 'warning');
                 }

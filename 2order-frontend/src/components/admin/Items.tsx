@@ -26,7 +26,7 @@ import NewItem from '../forms/NewItem';
 import { useNotifications } from '../../hooks/useNotifications';
 
 const Items: React.FC = () => {
-    const { vratiCeoMeni, obrisiStavkeMenija } = useActions();
+    const { vratiCeoMeni, obrisiStavkeMenija, azurirajStavkeMenija } = useActions();
     const [showMessage] = useNotifications();
     const { stavkeMenija, error, loading } = useTypedSelector(state => state.stavkeMenija);
     const [open, setOpen] = useState<boolean>(false);
@@ -52,7 +52,7 @@ const Items: React.FC = () => {
         else if (args.item.id === 'update') {
             if(grid.current !== null) {
                 if ((grid.current.getBatchChanges() as IBatchChangesStavka).changedRecords.length > 0) {
-
+                    azurirajStavkeMenija((grid.current.getBatchChanges() as IBatchChangesStavka).changedRecords);
                 } else {
                     showMessage('You need first to update some data!', 'warning');
                 }

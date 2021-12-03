@@ -4,13 +4,9 @@ import Sto from "./Sto";
 interface Racun {
     id: number;
     vreme: Date;
-    tip: string;
     listaPorudzbina: Porudzbina[];
-    stoId: number;
-    sto: Sto;
-    brojTelefona: string;
-    grad: string;
-    adresa: string;
+    stoId?: number;
+    sto?: Sto;
     iznos: string;
 }
 
